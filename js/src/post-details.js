@@ -102,3 +102,12 @@ $(document).ready(function() {
       : NexT.utils.displaySidebar();
   }
 });
+
+$(document).ready(function(){
+    $(document).on('click', '.fold_hider', function(){
+        $('>.fold', this.parentNode).slideToggle();
+        $('>:first', this).toggleClass('open');
+    });
+    // Default mode - fold block
+    $("div.fold").css("display","none");
+});

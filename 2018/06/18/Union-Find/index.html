@@ -124,7 +124,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -155,7 +155,7 @@
 <meta property="og:description" content="ScenarioIn the following picture, it describes a scenario of Union Find. Clarifications:  Number p is connected to number q means there is a path from p to q. Pair(p, q) in the left means p and q shou">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2018/06/18/Union-Find/union-find-scenario.png">
-<meta property="og:updated_time" content="2018-06-21T00:21:17.244Z">
+<meta property="og:updated_time" content="2018-06-24T09:54:19.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Union Find">
 <meta name="twitter:description" content="ScenarioIn the following picture, it describes a scenario of Union Find. Clarifications:  Number p is connected to number q means there is a path from p to q. Pair(p, q) in the left means p and q shou">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-20 17:21:17" itemprop="dateModified" datetime="2018-06-20T17:21:17-07:00">2018-06-20</time>
+                <time title="Modified: 2018-06-24 02:54:19" itemprop="dateModified" datetime="2018-06-24T02:54:19-07:00">2018-06-24</time>
               
             
           </span>
@@ -446,7 +446,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -477,7 +477,70 @@
 <p>   <img src="union-find-scenario.png" width="25%" height="25%" alt="Union-Find Scenario"></p>
    <center><strong>Figure 1. Union Find Scenario</strong></center>
 
-<h1 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h1><h2 id="Dynamic-Connectivity"><a href="#Dynamic-Connectivity" class="headerlink" title="Dynamic Connectivity"></a>Dynamic Connectivity</h2>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>After reading the scenerio above, we should know the 3rd point in <code>Clarifications</code> is the problem we have to solve.</p>
+<p>In order to achieve this goal, we should know whether there is a path(connectivity) from p to q(undirected) when receiving a pair(p, q). Therefore, the following things are what we should do:</p>
+<ul>
+<li>Save previous received information.</li>
+<li>Give a clear and easy way to check the <strong>connectivity</strong> of each given pair(p, q).</li>
+</ul>
+<p>For simplicity, we take use of <strong>Array</strong> as the basic data structure.<br>e.g. <code>array[1] = 1 and array[2] = 2 for number 1 and number 2 at the beginning.</code></p>
+<h1 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h1><p>From above analysis, we are able to define the following concepts.</p>
+<ul>
+<li><strong>Component</strong>: A component means a collection of numbers and all these numbers connect with each other.</li>
+</ul>
+<h1 id="API-Degisn"><a href="#API-Degisn" class="headerlink" title="API Degisn"></a>API Degisn</h1><p>Before getting started to solve these problems, it is important for us to define the APIs.<br>(Note: node is an alias of number here)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ version</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Initialize nodes with size n</span></span><br><span class="line">    UnionFind(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            nodes.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        component_num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Union two 2 nodes</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Find the component identifier of p</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// return current component num</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> component_num;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nodes;</span><br><span class="line">    <span class="keyword">int</span> component_num;</span><br><span class="line">&#125;;</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h1 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h1><p>There are two kinds of solutions <code>Quick-Union</code> and <code>Quick-Union with Path Compression</code>;</p>
+<h2 id="Basic-Solution-Quick-Union"><a href="#Basic-Solution-Quick-Union" class="headerlink" title="Basic Solution: Quick-Union"></a>Basic Solution: Quick-Union</h2><p>Here, we will construct nodes with tree structure. Since our data structure is array, then each nodes’ value in array represents its father’s index, which means root nodes’ value is it own index.</p>
+<p>Implementation of <code>find</code> and <code>union_nodes</code>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p])</span><br><span class="line">        p = nodes[p];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you think about the above logic a little bit more in depth, you will find that if p from higher tree and q  from lower tree always, then the new tree will grow higher every time after merging with other trees. So the advanced solution comes.</p>
+<h2 id="Advanced-Solution-Quick-Union-with-Path-Compression"><a href="#Advanced-Solution-Quick-Union-with-Path-Compression" class="headerlink" title="Advanced Solution: Quick-Union with Path Compression"></a>Advanced Solution: Quick-Union with Path Compression</h2><p>Just imagine that the only thing we want to know is that wether given two numbers p ,q are in the same component which means their root are the same one. We do not care about the path from p -&gt; q. So in order to save the time in every <code>find</code> operation, we could compress path between nodes with root by directly connect nodes with their root.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = p;</span><br><span class="line">    <span class="keyword">while</span> (rootp != nodes[rootp])</span><br><span class="line">        rootp = nodes[nodes[rootp]];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// path compression</span></span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p]) &#123;</span><br><span class="line">        <span class="keyword">int</span> newp = nodes[p];</span><br><span class="line">        nodes[p] = rootp;</span><br><span class="line">        p = newp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the same with base implementation</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h1><p>Union Find is a simple and friendly algorithm. It has the following important/unique features:</p>
+<ol>
+<li>Find nodes/items’ connectivity with static or dynamic input stream.</li>
+<li>The <code>delete</code> operation is very very inefficient or expensive to implemented in Union Find, so if we have to handle this operation, it is better to convert it to <code>union_nodes</code> operation.<br>Example: <strong><a href="#Bricks-Falling-when-Hit">Practive 5(Lintcode 1014)</a></strong></li>
+</ol>
+<h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><h2 id="Valid-Graph-Tree"><a href="#Valid-Graph-Tree" class="headerlink" title="Valid Graph Tree"></a>Valid Graph Tree</h2><p>From: <a href="https://www.lintcode.com/problem/graph-valid-tree/description" target="_blank" rel="noopener">LintCode 178</a><br>Difficulty: Medium</p>
+<div><div class="fold_hider"><div class="close hider_title">Hint</div></div><div class="fold">
+<ul>
+<li>Build Union-Find data structure, for each edges, run <code>union_nodes</code>, if input p, q are already in the same component which means there exists a cycle, return <strong>false</strong> directly. After handling all edges, return <code>count() == 1</code>.</li>
+<li>Trick: In a valid tree, <code>nodes_num - edges_num == 1</code>.</li>
+</ul>
+
+</div></div>
+<h2 id="Surrounded-Regions"><a href="#Surrounded-Regions" class="headerlink" title="Surrounded Regions"></a>Surrounded Regions</h2><p>From: <a href="https://www.lintcode.com/problem/surrounded-regions/description" target="_blank" rel="noopener">LintCode 477</a><br>Difficulty: Medium</p>
+<div><div class="fold_hider"><div class="close hider_title">Hint</div></div><div class="fold">
+<ul>
+<li>Build Union-Find data structure, lookup all elements first, every 0 will try to connect with its surrounded 0s. Then, loop all elements again, for every 0, try to check <code>connected(current_0, peripheral_0s)</code>, if true, skip, otherwise, replace it with ‘X’.</li>
+<li>Tricks:<ol>
+<li>Every 0 can only try to connect with its left 0 and up 0.</li>
+<li>Connect all peripheral 0s with a virtual node(Typically its index is <code>n * m</code>). Then replace connected check with <code>connected(current_0, virtual_node)</code>.</li>
+</ol>
+</li>
+</ul>
+
+</div></div>
+<h2 id="Number-of-Islands-II"><a href="#Number-of-Islands-II" class="headerlink" title="Number of Islands II"></a>Number of Islands II</h2><p>From: <a href="https://www.lintcode.com/problem/number-of-islands-ii/description" target="_blank" rel="noopener">LintCode 434</a><br>Difficulty: Hard</p>
+<div><div class="fold_hider"><div class="close hider_title">Hint</div></div><div class="fold">
+<ul>
+<li>Build Union-find data structure, and initialize it. After receiving an operations <code>island_num++</code>. And then try to <code>union_nodes(current_pos, left_up_right_bottom_pos)</code>. In <code>union_nodes()</code>, if two nodes are in same component, skip. Otherwise, merge them and <code>island_num--</code>.</li>
+</ul>
+
+</div></div>
+<h2 id="Bricks-Falling-when-Hit"><a href="#Bricks-Falling-when-Hit" class="headerlink" title="Bricks Falling when Hit"></a>Bricks Falling when Hit</h2><p>From: <a href="https://www.lintcode.com/problem/bricks-falling-when-hit/description" target="_blank" rel="noopener">LintCode 1014</a><br>Difficulty: Hard</p>
+<div><div class="fold_hider"><div class="close hider_title">Hint</div></div><div class="fold">
+<p>This problem is a little bit tough, since if we think about it conventionally, we have to implement the <strong>delete()</strong> operation of Union Find. So we will think about it in a new perspective and make the conversion of <code>delete() -&gt; dosomething() + union_nodes()</code>.</p>
+<p><strong>Rule:</strong> By adding hitted bricks back to the wall, we can get the <code>new_added_num(falling_num)</code> to top row with only <code>union</code> operation instead of <code>delete</code> operation.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Go through the matrix, construct the Union Find data structure, but <strong>skip bricks in hits</strong>.</li>
+<li>Loop <strong>hits</strong> from last to first, get <code>old_connected_num</code> to top row bricks, try to <code>union_nodes(current_pos, left_up_right_bottom_pos)</code>, but still <strong>skip those in hits</strong>. If current node in hits, remove it from hits. get <code>new_connected_num</code>. Then this round we know <code>new_connected_num - old_connected_num</code> bricks will be falled.</li>
+</ol>
+<p><strong>Tricks:</strong> We should only keep root node containing the num of nodes in this tree. And the first row bricks will also have <strong>up_pos</strong> - <strong>virtual_node.</strong></p>
+
+</div></div>
+
       
     </div>
 
@@ -701,7 +764,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Concepts"><span class="nav-number">2.</span> <span class="nav-text">Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Connectivity"><span class="nav-number">2.1.</span> <span class="nav-text">Dynamic Connectivity</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Concepts"><span class="nav-number">3.</span> <span class="nav-text">Concepts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API-Degisn"><span class="nav-number">4.</span> <span class="nav-text">API Degisn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solutions"><span class="nav-number">5.</span> <span class="nav-text">Solutions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Solution-Quick-Union"><span class="nav-number">5.1.</span> <span class="nav-text">Basic Solution: Quick-Union</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-Solution-Quick-Union-with-Path-Compression"><span class="nav-number">5.2.</span> <span class="nav-text">Advanced Solution: Quick-Union with Path Compression</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Key-Points"><span class="nav-number">6.</span> <span class="nav-text">Key Points</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Practice"><span class="nav-number">7.</span> <span class="nav-text">Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Valid-Graph-Tree"><span class="nav-number">7.1.</span> <span class="nav-text">Valid Graph Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surrounded-Regions"><span class="nav-number">7.2.</span> <span class="nav-text">Surrounded Regions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Number-of-Islands-II"><span class="nav-number">7.3.</span> <span class="nav-text">Number of Islands II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bricks-Falling-when-Hit"><span class="nav-number">7.4.</span> <span class="nav-text">Bricks Falling when Hit</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -709,6 +772,13 @@
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -735,7 +805,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3 mins.</span>
+    <span title="Reading time total">7 mins.</span>
   
 </div>
 
@@ -768,13 +838,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
-        
-      </div>
     
 
     
