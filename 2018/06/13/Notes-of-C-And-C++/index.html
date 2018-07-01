@@ -154,7 +154,7 @@
 <meta property="og:site_name" content="Yeeeeeeee">
 <meta property="og:description" content="Input &amp;amp; OutputIn C Programming Language#include “stdio.h”  int putc(int c, FILE* f): put c to f, buffering int fputc(int c, FILE* f): … int putchar(int c): 2nd argument is STDOUT int fputchar(int">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-21T00:21:17.244Z">
+<meta property="og:updated_time" content="2018-06-28T04:14:58.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes of C and C++">
 <meta name="twitter:description" content="Input &amp;amp; OutputIn C Programming Language#include “stdio.h”  int putc(int c, FILE* f): put c to f, buffering int fputc(int c, FILE* f): … int putchar(int c): 2nd argument is STDOUT int fputchar(int">
@@ -386,7 +386,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-20 17:21:17" itemprop="dateModified" datetime="2018-06-20T17:21:17-07:00">2018-06-20</time>
+                <time title="Modified: 2018-06-27 21:14:58" itemprop="dateModified" datetime="2018-06-27T21:14:58-07:00">2018-06-27</time>
               
             
           </span>
@@ -488,15 +488,20 @@
 </ul>
 <hr>
 <ul>
-<li><code>int scanf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/scanf/" target="_blank" rel="noopener">Click</a></li>
-<li><code>int printf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/printf/" target="_blank" rel="noopener">Click</a></li>
+<li><code>int scanf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/scanf/" target="_blank" rel="noopener">scanf</a></li>
+<li><code>int printf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/printf/" target="_blank" rel="noopener">printf</a></li>
 <li><code>sscanf\sprintf</code>: …</li>
 </ul>
 <hr>
-<p><strong>Note</strong>: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in <a href="http://www.cplusplus.com/" target="_blank" rel="noopener">Click</a></p>
+<p><strong>Note</strong>: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in <a href="http://www.cplusplus.com/" target="_blank" rel="noopener">f-func</a></p>
 <h2 id="In-C-Programming-Language-1"><a href="#In-C-Programming-Language-1" class="headerlink" title="In C++ Programming Language"></a>In C++ Programming Language</h2><h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><h2 id="String-Char"><a href="#String-Char" class="headerlink" title="String / Char*"></a>String / Char*</h2><ol>
 <li><p>All strings terminate with <code>&#39;\0&#39;</code>.</p>
  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Delete all c in s[]</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">squeeze</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> c, <span class="keyword">char</span> s[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; s[i] != <span class="string">'\0'</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] != c) &#123;</span><br><span class="line">            s[j++] = s[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    s[j] = <span class="string">'\0'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li><p>Check if a given string is an integer(C++).</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Check s is int or not</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_int</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stringstream</span> ss;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">return</span> ss &gt;&gt; i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><ol>
@@ -642,7 +647,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -686,7 +691,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -782,7 +791,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">7 mins.</span>
+    <span title="Reading time total">8 mins.</span>
   
 </div>
 
