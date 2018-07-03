@@ -488,14 +488,14 @@
 <ul>
 <li><strong>Component</strong>: A component means a collection of numbers and all these numbers connect with each other.</li>
 </ul>
-<h1 id="API-Degisn"><a href="#API-Degisn" class="headerlink" title="API Degisn"></a>API Degisn</h1><p>Before getting started to solve these problems, it is important for us to define the APIs.<br>(Note: node is an alias of number here)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ version</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Initialize nodes with size n</span></span><br><span class="line">    UnionFind(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            nodes.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        component_num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Union two 2 nodes</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Find the component identifier of p</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// return current component num</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> component_num;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nodes;</span><br><span class="line">    <span class="keyword">int</span> component_num;</span><br><span class="line">&#125;;</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h1 id="API-Degisn"><a href="#API-Degisn" class="headerlink" title="API Degisn"></a>API Degisn</h1><p>Before getting started to solve these problems, it is important for us to define the APIs.<br>(Note: node is an alias of number here)<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// C++ version</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Initialize nodes with size n</span></span><br><span class="line">    UnionFind(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            nodes.push_back(i);</span><br><span class="line">        &#125;</span><br><span class="line">        component_num = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Union two 2 nodes</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Find the component identifier of p</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// return current component num</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> component_num;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nodes;</span><br><span class="line">    <span class="keyword">int</span> component_num;</span><br><span class="line">&#125;;</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <h1 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h1><p>There are two kinds of solutions <code>Quick-Union</code> and <code>Quick-Union with Path Compression</code>;</p>
 <h2 id="Basic-Solution-Quick-Union"><a href="#Basic-Solution-Quick-Union" class="headerlink" title="Basic Solution: Quick-Union"></a>Basic Solution: Quick-Union</h2><p>Here, we will construct nodes with tree structure. Since our data structure is array, then each nodes’ value in array represents its father’s index, which means root nodes’ value is it own index.</p>
 <p>Implementation of <code>find</code> and <code>union_nodes</code>:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p])</span><br><span class="line">        p = nodes[p];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p])</span><br><span class="line">        p = nodes[p];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If you think about the above logic a little bit more in depth, you will find that if p from higher tree and q  from lower tree always, then the new tree will grow higher every time after merging with other trees. So the advanced solution comes.</p>
 <h2 id="Advanced-Solution-Quick-Union-with-Path-Compression"><a href="#Advanced-Solution-Quick-Union-with-Path-Compression" class="headerlink" title="Advanced Solution: Quick-Union with Path Compression"></a>Advanced Solution: Quick-Union with Path Compression</h2><p>Just imagine that the only thing we want to know is that wether given two numbers p ,q are in the same component which means their root are the same one. We do not care about the path from p -&gt; q. So in order to save the time in every <code>find</code> operation, we could compress path between nodes with root by directly connect nodes with their root.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = p;</span><br><span class="line">    <span class="keyword">while</span> (rootp != nodes[rootp])</span><br><span class="line">        rootp = nodes[nodes[rootp]];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// path compression</span></span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p]) &#123;</span><br><span class="line">        <span class="keyword">int</span> newp = nodes[p];</span><br><span class="line">        nodes[p] = rootp;</span><br><span class="line">        p = newp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the same with base implementation</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = p;</span><br><span class="line">    <span class="keyword">while</span> (rootp != nodes[rootp])</span><br><span class="line">        rootp = nodes[nodes[rootp]];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// path compression</span></span><br><span class="line">    <span class="keyword">while</span> (p != nodes[p]) &#123;</span><br><span class="line">        <span class="keyword">int</span> newp = nodes[p];</span><br><span class="line">        nodes[p] = rootp;</span><br><span class="line">        p = newp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the same with base implementation</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union_nodes</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> rootp = find(p);</span><br><span class="line">    <span class="keyword">int</span> rootq = find(q);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// already in the same component</span></span><br><span class="line">    <span class="keyword">if</span> (rootp == rootq)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    nodes[rootp] = rootq;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h1><p>Union Find is a simple and friendly algorithm. It has the following important/unique features:</p>
 <ol>
 <li>Find nodes/items’ connectivity with static or dynamic input stream.</li>
@@ -666,7 +666,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -687,7 +687,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -714,7 +718,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -810,7 +836,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">8 mins.</span>
+    <span title="Reading time total">10 mins.</span>
   
 </div>
 
@@ -970,6 +996,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
