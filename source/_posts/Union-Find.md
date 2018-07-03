@@ -197,3 +197,7 @@ This problem is a little bit tough, since if we think about it conventionally, w
 
 **Tricks:** We should only keep root node containing the num of nodes in this tree. And the first row bricks will also have **up_pos** - **virtual_node.**
 {% endfold %}
+
+# Comparation with DFS
+
+It is faster to find connected components with DFS in a **static** graph, but with **dynamic** graph the Union Find will perform better.

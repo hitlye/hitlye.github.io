@@ -29,13 +29,14 @@ categories:
 - `int fputs(const char* str, FILE* f)`: put **str** to **f** until **'\0'**
 - `int puts(const char* str)`: put **str** to **STDOUT** and will append **'\n'** to the end of str
 ---
-- `int scanf(const char* format, ...)`: [Click](http://www.cplusplus.com/reference/cstdio/scanf/)
-- `int printf(const char* format, ...)`: [Click](http://www.cplusplus.com/reference/cstdio/printf/)
+- `int scanf(const char* format, ...)`: [scanf](http://www.cplusplus.com/reference/cstdio/scanf/)
+- `int printf(const char* format, ...)`: [printf](http://www.cplusplus.com/reference/cstdio/printf/)
 - `sscanf\sprintf`: ...
 ---
-**Note**: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in [Click](http://www.cplusplus.com/)
+**Note**: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in [f-func](http://www.cplusplus.com/)
 
 ## In C++ Programming Language
+
 
 # Data Type
 
@@ -55,6 +56,17 @@ categories:
             }
         }
         s[j] = '\0';
+    }
+    ```
+    
+2. Check if a given string is an integer(C++).
+
+    ```c++
+    // Check s is int or not
+    bool is_int(String s) {
+        stringstream ss;
+        int i;
+        return ss >> i;
     }
     ```
 
