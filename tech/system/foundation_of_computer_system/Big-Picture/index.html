@@ -146,25 +146,29 @@
 
 
 
-  <meta name="description" content="Input &amp;amp; OutputIn C Programming Language#include “stdio.h”  int putc(int c, FILE* f): put c to f, buffering int fputc(int c, FILE* f): … int putchar(int c): 2nd argument is STDOUT int fputchar(int">
-<meta name="keywords" content="c,c++,note">
+  <meta name="description" content="Get StartedWhat is a computer?Actually, it is hard to answer this question. Since a computer contains countless design ideas including hardware &amp;amp; software, processor &amp;amp; memory and operating sys">
+<meta name="keywords" content="computer-system,csapp,18600">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Notes of C and C++">
-<meta property="og:url" content="http://yoursite.com/2018/06/13/Notes-of-C-And-C++/index.html">
+<meta property="og:title" content="Foundation of Computer System - Big Picture">
+<meta property="og:url" content="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/index.html">
 <meta property="og:site_name" content="Yeeeeeeee">
-<meta property="og:description" content="Input &amp;amp; OutputIn C Programming Language#include “stdio.h”  int putc(int c, FILE* f): put c to f, buffering int fputc(int c, FILE* f): … int putchar(int c): 2nd argument is STDOUT int fputchar(int">
+<meta property="og:description" content="Get StartedWhat is a computer?Actually, it is hard to answer this question. Since a computer contains countless design ideas including hardware &amp;amp; software, processor &amp;amp; memory and operating sys">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-28T04:14:58.730Z">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/von-neumann-architecture.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/isa-based-architecture.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/iron-law.png">
+<meta property="og:updated_time" content="2018-07-09T00:22:52.817Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes of C and C++">
-<meta name="twitter:description" content="Input &amp;amp; OutputIn C Programming Language#include “stdio.h”  int putc(int c, FILE* f): put c to f, buffering int fputc(int c, FILE* f): … int putchar(int c): 2nd argument is STDOUT int fputchar(int">
+<meta name="twitter:title" content="Foundation of Computer System - Big Picture">
+<meta name="twitter:description" content="Get StartedWhat is a computer?Actually, it is hard to answer this question. Since a computer contains countless design ideas including hardware &amp;amp; software, processor &amp;amp; memory and operating sys">
+<meta name="twitter:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/von-neumann-architecture.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/13/Notes-of-C-And-C++/"/>
+  <link rel="canonical" href="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/"/>
 
 
 
@@ -174,7 +178,7 @@
   };
 </script>
 
-  <title>Notes of C and C++ | Yeeeeeeee</title>
+  <title>Foundation of Computer System - Big Picture | Yeeeeeeee</title>
   
 
 
@@ -327,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/Notes-of-C-And-C++/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tech/system/foundation_of_computer_system/Big-Picture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leo">
@@ -344,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Notes of C and C++
+          <h1 class="post-title" itemprop="name headline">Foundation of Computer System - Big Picture
               
             
           </h1>
@@ -369,7 +373,7 @@
                 
               
 
-              <time title="Created: 2018-06-13 15:24:45" itemprop="dateCreated datePublished" datetime="2018-06-13T15:24:45-07:00">2018-06-13</time>
+              <time title="Created: 2018-06-19 00:24:35" itemprop="dateCreated datePublished" datetime="2018-06-19T00:24:35-07:00">2018-06-19</time>
             
 
             
@@ -386,7 +390,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-27 21:14:58" itemprop="dateModified" datetime="2018-06-27T21:14:58-07:00">2018-06-27</time>
+                <time title="Modified: 2018-07-08 17:22:52" itemprop="dateModified" datetime="2018-07-08T17:22:52-07:00">2018-07-08</time>
               
             
           </span>
@@ -410,7 +414,14 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/c-c/" itemprop="url" rel="index"><span itemprop="name">c/c++</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/" itemprop="url" rel="index"><span itemprop="name">system</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/foundation-of-computer-system/" itemprop="url" rel="index"><span itemprop="name">foundation of computer system</span></a></span>
 
                 
                 
@@ -464,65 +475,48 @@
       
 
       
-        <h1 id="Input-amp-Output"><a href="#Input-amp-Output" class="headerlink" title="Input &amp; Output"></a>Input &amp; Output</h1><h2 id="In-C-Programming-Language"><a href="#In-C-Programming-Language" class="headerlink" title="In C Programming Language"></a>In C Programming Language</h2><p>#include “stdio.h”</p>
-<ul>
-<li><code>int putc(int c, FILE* f)</code>: put <strong>c</strong> to f, buffering</li>
-<li><code>int fputc(int c, FILE* f)</code>: …</li>
-<li><code>int putchar(int c)</code>: 2nd argument is STDOUT</li>
-<li><code>int fputchar(int c)</code>: …<a id="more"></a>
-</li>
-</ul>
-<hr>
-<ul>
-<li><code>int getc(FILE* f)</code>: get <strong>c</strong> from f, buffering</li>
-<li><code>int fgetc(FILE* f)</code>: …</li>
-<li><code>int getchar()</code>: 2nd argument is STDIN</li>
-<li><code>int fgetchar()</code>: …</li>
-</ul>
-<hr>
-<ul>
-<li><code>char* fgets(char* str, int num, FILE* f)</code>: read from <strong>f</strong> until <strong>‘\n’</strong> or <strong>num</strong>. <strong>‘\n’</strong>(Conditional) and <strong>‘\0’</strong>(Required) will be attached to the end of <strong>str</strong>.</li>
-<li><strong>(Deprecated)</strong><code>char* gets(char* str)</code>: No <em>num</em> and <strong>‘\n’</strong></li>
-<li><code>int fputs(const char* str, FILE* f)</code>: put <strong>str</strong> to <strong>f</strong> until <strong>‘\0’</strong></li>
-<li><code>int puts(const char* str)</code>: put <strong>str</strong> to <strong>STDOUT</strong> and will append <strong>‘\n’</strong> to the end of str</li>
-</ul>
-<hr>
-<ul>
-<li><code>int scanf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/scanf/" target="_blank" rel="noopener">scanf</a></li>
-<li><code>int printf(const char* format, ...)</code>: <a href="http://www.cplusplus.com/reference/cstdio/printf/" target="_blank" rel="noopener">printf</a></li>
-<li><code>sscanf\sprintf</code>: …</li>
-</ul>
-<hr>
-<p><strong>Note</strong>: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in <a href="http://www.cplusplus.com/" target="_blank" rel="noopener">f-func</a></p>
-<h2 id="In-C-Programming-Language-1"><a href="#In-C-Programming-Language-1" class="headerlink" title="In C++ Programming Language"></a>In C++ Programming Language</h2><h1 id="Data-Type"><a href="#Data-Type" class="headerlink" title="Data Type"></a>Data Type</h1><h2 id="String-Char"><a href="#String-Char" class="headerlink" title="String / Char*"></a>String / Char*</h2><ol>
-<li><p>All strings terminate with <code>&#39;\0&#39;</code>.</p>
- <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Delete all c in s[]</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">squeeze</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> c, <span class="keyword">char</span> s[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; s[i] != <span class="string">'\0'</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] != c) &#123;</span><br><span class="line">            s[j++] = s[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    s[j] = <span class="string">'\0'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><h2 id="What-is-a-computer"><a href="#What-is-a-computer" class="headerlink" title="What is a computer?"></a>What is a computer?</h2><p>Actually, it is hard to answer this question. Since a computer contains countless design ideas including hardware &amp; software, processor &amp; memory and operating system &amp; compiler.<br>But if we stand in a high level, then the computer we are using is an <strong>Subclass</strong> of <strong><a href="https://en.wikipedia.org/wiki/Von_Neumann_architecture" target="_blank" rel="noopener">Von Neumann architecture</a>.</strong></p>
+   <img src="/tech/system/foundation_of_computer_system/Big-Picture/von-neumann-architecture.png" title="von-neumann-architecure">
+<a id="more"></a>
+   <center><strong>Figure 1. Von Neumann Architecture </strong></center>
+
+<p>A computer consists of:</p>
+<ol>
+<li>Control Unit inside Central Process Unit(CPU).</li>
+<li>Arithmetic/Logic Unit(ALU) inside Central Process Unit(CPU).</li>
+<li>Memory</li>
+<li>I/O Devices</li>
 </ol>
-<ol start="2">
-<li><p>Check if a given string is an integer(C++).</p>
- <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Check s is int or not</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_int</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">stringstream</span> ss;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">return</span> ss &gt;&gt; i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<h1 id="More-Specifically"><a href="#More-Specifically" class="headerlink" title="More Specifically"></a>More Specifically</h1><h2 id="What-is-a-computer-system"><a href="#What-is-a-computer-system" class="headerlink" title="What is a computer system?"></a>What is a computer system?</h2><p>Now, the second qeustion comes. Obviously, the computer system is differ from computer, since the latter contains new word <strong>system</strong>. Just like the 1st question, we will also give you a specific picture of computer system. In addition, it is one of the most important thing you should be focused on.</p>
+<img src="/tech/system/foundation_of_computer_system/Big-Picture/isa-based-architecture.png" title="isa-based-architecutre">
+   <center><strong>Figure 2. ISA Based Architecture</strong></center>
+
+<p>From the above architecure, we can make some conclusions:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Computer System = Software + Hardware</span><br><span class="line">                = [Application + Operation System] + Computer</span><br><span class="line">                = [Programming Languages + Operating System] + Computer Architecture</span><br></pre></td></tr></table></figure>
+<p>You may notice that in the conclusions above, we try to use <code>[]</code> to separate <code>Software</code> from <code>Hardware</code>. Why? The answer is the middle line in the picture - <code>ISA</code>.</p>
+<p>ISA is the abbreviate of <strong>Instruction Set Architecture</strong>, and all you need to know about it are:</p>
+<ol>
+<li>All codes are parsed to <strong>instructions</strong> and then run by computer. ISA contains the description and definition of these instructions.<br>e.g. <code>b = a + c</code> ==&gt; <code>get a, get c, add a to c, push result to b</code></li>
+<li>Isa is used to separate software from hardware, but not unrelated. In contrast, software and hardware need to communicate with each other. And ISA is the bridge and contract.</li>
+<li>Why should we have ISA? To make software and hardware can evolve independently. This will make life easy.</li>
 </ol>
-<h2 id="Pointer"><a href="#Pointer" class="headerlink" title="Pointer"></a>Pointer</h2><ol>
-<li><p><code>a[-1]</code> is legal if the element it accesses is valid and not out of array’s bound</p>
+<h1 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h1><p>The performance of computer is very important, so we have to evaluate it. Here we’ll introduce three methods:</p>
+<ol>
+<li><p>Computer Performance - Iron Law</p>
+<img src="/tech/system/foundation_of_computer_system/Big-Picture/iron-law.png" title="Iron Law">
+<center><strong>Figure 3. Iron Law</strong></center>
 </li>
-<li><p>How to parse complicated declaration of pointer?<br><strong>Theory Basis</strong></p>
+<li><p>Program Performance - Amdahl’s Law<br> $$ Speedup = \frac{1}{(1 - f) + \frac{f}{N}} $$</p>
+<ul>
+<li>f: fraction of program that is vectorizable or parallelizable</li>
+<li>N: Parallelized rate</li>
+</ul>
+</li>
+<li><p>Machine Performance - Moore’s Law</p>
 <blockquote>
-<p>Right-Left Rule: Start reading the declaration from the variable name, go right, and then, go left. When you encounter parentheses, the direction should be reversed. Once everything in the parentheses has been parsed, jump out of it. Continue till the whole declaration has been parsed</p>
+<p>(Transistors/Die) increases by 2x every 18 months</p>
 </blockquote>
-<p>Examples:</p>
-<ul>
-<li><code>int (*func)(int *p);</code><br>Explanation: func is a pointer to a function, the function has an int pointer as argument and return int.</li>
-<li><code>int (*func)(int *p, int (*f)(int*));</code><br>Explanation: func is a pointer to a function, the function has two arguments with return type int. one is an int pointer and the other(f) is a pointer to a function which takes an int pointer as the only argmument with return type int.</li>
-<li><code>int (*func[5])(int *p);</code><br>Explanation: func is a 5-size array and its element is pointer which points to a function with int pointer as the only argument and int as return type.</li>
-<li><code>int (*(*func)(int *p))[5];</code><br>Explanation: func is a function pointer which points to a function with int pointer as argument and return type is a pointer which points to a 5-size int array.</li>
-<li><code>int (*(*func[7][8][9])(int*))[5];</code><br>Explanation: func is a 3D array and its element is a function pointer which points to a function with int pointer as argument and 5-size int array as return.</li>
-</ul>
 </li>
-</ol>
-<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><ol>
-<li>The evaluation order of operands of an operator is not specified in C. e.g. <code>x = ++n + g(n)</code><br>This will cause unpredictable problem.</li>
 </ol>
 
       
@@ -544,11 +538,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag"># c</a>
+            <a href="/tags/computer-system/" rel="tag"># computer-system</a>
           
-            <a href="/tags/c/" rel="tag"># c++</a>
+            <a href="/tags/csapp/" rel="tag"># csapp</a>
           
-            <a href="/tags/note/" rel="tag"># note</a>
+            <a href="/tags/18600/" rel="tag"># 18600</a>
           
         </div>
       
@@ -561,14 +555,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/tech/algorithm/Union-Find/" rel="next" title="Union Find">
+                <i class="fa fa-chevron-left"></i> Union Find
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/18/Union-Find/" rel="prev" title="Union Find">
-                Union Find <i class="fa fa-chevron-right"></i>
+              <a href="/tech/algorithm/Stack-Queue/" rel="prev" title="Stack & Queue">
+                Stack & Queue <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -670,9 +668,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -776,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Input-amp-Output"><span class="nav-number">1.</span> <span class="nav-text">Input &amp; Output</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-C-Programming-Language"><span class="nav-number">1.1.</span> <span class="nav-text">In C Programming Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-C-Programming-Language-1"><span class="nav-number">1.2.</span> <span class="nav-text">In C++ Programming Language</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Type"><span class="nav-number">2.</span> <span class="nav-text">Data Type</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Char"><span class="nav-number">2.1.</span> <span class="nav-text">String / Char*</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pointer"><span class="nav-number">2.2.</span> <span class="nav-text">Pointer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">3.</span> <span class="nav-text">Misc</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-Started"><span class="nav-number">1.</span> <span class="nav-text">Get Started</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-computer"><span class="nav-number">1.1.</span> <span class="nav-text">What is a computer?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-Specifically"><span class="nav-number">2.</span> <span class="nav-text">More Specifically</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-computer-system"><span class="nav-number">2.1.</span> <span class="nav-text">What is a computer system?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation"><span class="nav-number">3.</span> <span class="nav-text">Evaluation</span></a></li></ol></div>
             
 
           </div>
@@ -817,7 +813,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">10 mins.</span>
+    <span title="Reading time total">13 mins.</span>
   
 </div>
 
@@ -982,6 +978,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
