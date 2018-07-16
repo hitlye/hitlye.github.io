@@ -155,10 +155,15 @@
 <meta property="og:description" content="ScenarioTry to sort the following cards (Min —&amp;gt; Max)!">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/scenario-of-sort.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/sort-complexity.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/selection-sort-visualization.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/insertion-sort-visualization.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/shell-sort-visualization.png">
-<meta property="og:updated_time" content="2018-07-10T01:20:16.130Z">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/merge-sort-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/merge-sort-time.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/quick-sort-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/sort-conclusion.png">
+<meta property="og:updated_time" content="2018-07-13T00:34:37.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Methods of Sort">
 <meta name="twitter:description" content="ScenarioTry to sort the following cards (Min —&amp;gt; Max)!">
@@ -391,7 +396,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-09 18:20:16" itemprop="dateModified" datetime="2018-07-09T18:20:16-07:00">2018-07-09</time>
+                <time title="Modified: 2018-07-12 17:34:37" itemprop="dateModified" datetime="2018-07-12T17:34:37-07:00">2018-07-12</time>
               
             
           </span>
@@ -449,7 +454,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -474,6 +479,7 @@
 <a id="more"></a>
    <center><strong>Figure 1. Scenario Of Sort </strong></center>
 
+<h1 id="Sort-Complexity"><a href="#Sort-Complexity" class="headerlink" title="Sort Complexity"></a>Sort Complexity</h1><p>   <img src="sort-complexity.png" width="75%" height="75%" alt="Sort Complexity"><br>   <center><strong>Figure 2. Sort Complexity </strong></center><br>   $$ 2^h \ge \#leaves \ge N! \\<br>   \Rightarrow h \ge lg(N!) \simeq N \bullet log(N)$$</p>
 <h1 id="Selection-sort"><a href="#Selection-sort" class="headerlink" title="Selection sort"></a>Selection sort</h1><h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><ul>
 <li>In interation <code>i</code>, select index <code>min</code> of smallest remaining entry.</li>
 <li>Swap <code>a[i]</code> and <code>a[min]</code></li>
@@ -482,13 +488,15 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// v is the original array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selection_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; v.size(); ++i) &#123;</span><br><span class="line">        <span class="comment">// Index of smallest value;</span></span><br><span class="line">        <span class="keyword">int</span> min = i;</span><br><span class="line">        <span class="comment">// Find the smallest element from i - &gt; v.size()</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> j = i + <span class="number">1</span>; j &lt; v.size(); ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v[j] &lt; v[min]) &#123;</span><br><span class="line">                min = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(v[i], v[min]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </div></div>
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p><strong>Visualization:</strong><br>   <img src="selection-sort-visualization.png" width="50%" height="50%" alt="Selection Sort Visualization"><br>   <center><strong>Figure 2. Selection Sort Visualization </strong></center></p>
-<p><strong>Proposition:</strong></p>
-<ul>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization:</strong><br> <img src="selection-sort-visualization.png" width="50%" height="50%" alt="Selection Sort Visualization"> <center><strong>Figure 3. Selection Sort Visualization </strong></center></li>
+<li><strong>Proposition:</strong><ul>
 <li><strong>Time Complexity:</strong> $ (N - 1) + (N - 2) + … + 1 + 0 \sim N^2/2 $</li>
 <li><strong>Space Complexity:</strong> $ \sim 1 $</li>
 <li><strong>Stable:</strong> No</li>
 <li><strong>Other Features:</strong> Running time insensitive to input &amp; Data movement is minimal.</li>
+</ul>
+</li>
 </ul>
 <h1 id="Insertion-sort"><a href="#Insertion-sort" class="headerlink" title="Insertion sort"></a>Insertion sort</h1><h2 id="Idea-1"><a href="#Idea-1" class="headerlink" title="Idea"></a>Idea</h2><ul>
 <li>In iteration <code>i</code>, swap <code>a[i]</code> with each larger entry to its left.</li>
@@ -497,9 +505,9 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// v is the original array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertion_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">1</span>; i &lt; v.size(); ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> j = i; j &gt;= <span class="number">1</span>; --j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v[j] &lt; v[j - <span class="number">1</span>])</span><br><span class="line">                swap(v[j], v[j - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="comment">// v[j] is the max value from 0 -&gt; i - 1</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </div></div>
-<h2 id="Analysis-1"><a href="#Analysis-1" class="headerlink" title="Analysis"></a>Analysis</h2><p><strong>Visualization:</strong><br>   <img src="insertion-sort-visualization.png" width="50%" height="50%" alt="Insertion Sort Visualization"><br>   <center><strong>Figure 2. Insertion Sort Visualization </strong></center></p>
-<p><strong>Proposition:</strong></p>
-<ul>
+<h2 id="Analysis-1"><a href="#Analysis-1" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization:</strong><br> <img src="insertion-sort-visualization.png" width="50%" height="50%" alt="Insertion Sort Visualization"> <center><strong>Figure 4. Insertion Sort Visualization </strong></center></li>
+<li><strong>Proposition:</strong><ul>
 <li><strong>Time Complexity:</strong><ul>
 <li>Random-ordered array with distinct keys: $ \sim \frac{N^2}{4} $(Expect Half-Way Comparation)</li>
 <li>Best case with sorted array: $ N - 1 $</li>
@@ -508,7 +516,7 @@
 </li>
 <li><strong>Space Complexity:</strong> $ \sim 1$</li>
 <li><strong>Stable:</strong> Yes</li>
-<li><strong>Other Features:</strong><ul>
+<li><strong>Other Features:</strong></li>
 <li>Data Sensitive to input &amp; Lots of data movements</li>
 <li><strong>Partial Sorted Array(Linear Time Complexity):</strong><ul>
 <li>Definition: Number of Inversions pair is $ \leq cN $</li>
@@ -527,15 +535,62 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// v is the original array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shell_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// step</span></span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="keyword">while</span> (h &lt; v.size() / <span class="number">3</span>)</span><br><span class="line">        h = (<span class="number">3</span> * h + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (h &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// h -&gt; v.size()</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h; i &lt; v.size(); ++i) &#123;</span><br><span class="line">            <span class="comment">// Insertion sort</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= h; j -= h) &#123;</span><br><span class="line">                <span class="keyword">if</span> (v[j] &gt; v[j - h])</span><br><span class="line">                    swap(v[j], v[j - h]);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        h /= <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </div></div>
-<h2 id="Analysis-2"><a href="#Analysis-2" class="headerlink" title="Analysis"></a>Analysis</h2><p><strong>Visualization:</strong><br>   <img src="shell-sort-visualization.png" width="50%" height="50%" alt="Shell Sort Visualization"><br>   <center><strong>Figure 4. Shell Sort Visualization</strong></center></p>
-<p><strong>Proposition:</strong></p>
-<ul>
+<h2 id="Analysis-2"><a href="#Analysis-2" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization:</strong><br> <img src="shell-sort-visualization.png" width="50%" height="50%" alt="Shell Sort Visualization"> <center><strong>Figure 5. Shell Sort Visualization</strong></center></li>
+<li><strong>Proposition:</strong><ul>
 <li><strong>Time Complexity:</strong> $ \sim N^{\frac{3}{2}}$</li>
 <li><strong>Space Complexity:</strong> $ \sim 1 $</li>
 <li><strong>Stable:</strong> Yes</li>
 <li><strong>Other Features:</strong> Fast in small array and used in some embedded system.</li>
 </ul>
-<h1 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h1><h1 id="Quick-sort"><a href="#Quick-sort" class="headerlink" title="Quick sort"></a>Quick sort</h1><h1 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h1><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
+</li>
+</ul>
+<h1 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h1><h2 id="Idea-3"><a href="#Idea-3" class="headerlink" title="Idea"></a>Idea</h2><ul>
+<li>Divide array into two halves</li>
+<li>Recursively sort each half</li>
+<li>Merge two halves</li>
+</ul>
+<h2 id="Code-Sample-3"><a href="#Code-Sample-3" class="headerlink" title="Code Sample"></a>Code Sample</h2><div><div class="fold_hider"><div class="close hider_title">Sample</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// merge two sorted sub-array, lo -&gt; mid, mid+1 -&gt; hi</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> mid, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// copy elements to aux</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lo; i &lt;= hi; ++i)</span><br><span class="line">        aux[i] = v[i];</span><br><span class="line">    <span class="keyword">int</span> i = lo, j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = lo; k &lt;= hi; ++k) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; mid)</span><br><span class="line">            v[k] = aux[j++];  <span class="comment">// lo -&gt; mid has already been processed</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; hi)</span><br><span class="line">            v[k] = aux[i++];  <span class="comment">// mid + 1 -&gt; hi has already been processed</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (v[j] &lt; v[i])</span><br><span class="line">            v[k] = aux[j++];  <span class="comment">// normal condition 1</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            v[k] = aux[i++];  <span class="comment">// normal condition 2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// v is the original array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; aux, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Improvement 1. Small array is efficient with insertion sort</span></span><br><span class="line">    <span class="keyword">if</span> (lo + CUTOFF &gt;= hi) &#123;</span><br><span class="line">        insert_sort(v, lo, hi);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mid = lo + (hi - lo)/<span class="number">2</span>;</span><br><span class="line">    merge_sort(v, aux, lo, mid);</span><br><span class="line">    merge_sort(v, aux, mid + <span class="number">1</span>, hi);</span><br><span class="line">    <span class="comment">// Improvement 2. Check if sub arrays are already ordered.</span></span><br><span class="line">    <span class="keyword">if</span> (v[mid] &lt;= v[mid + <span class="number">1</span>])</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    merge(v, aux, lo, mid, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="Analysis-3"><a href="#Analysis-3" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization:</strong><br> <img src="merge-sort-visualization.png" width="75%" height="75%" alt="Merge Sort Visualization"> <center><strong>Figure 6. Merge Sort Visualization </strong></center></li>
+<li><strong>Proposition:</strong><ul>
+<li><strong>Time Complexity:</strong> $ \sim Nlog(N)$<br>$$ D(N) \le C(\lceil {N/2} \rceil) + C(\lfloor {N/2} \rfloor) + N $$<br><img src="merge-sort-time.png" width="75%" height="75%" alt="Merge Sort Time"><center><strong>Figure 7. Merge Sort Time </strong></center></li>
+<li><strong>Space Complexity:</strong> $ \sim N $</li>
+<li><strong>Stable:</strong> Yes</li>
+</ul>
+</li>
+</ul>
+<h1 id="Quick-sort"><a href="#Quick-sort" class="headerlink" title="Quick sort"></a>Quick sort</h1><h2 id="Idea-4"><a href="#Idea-4" class="headerlink" title="Idea"></a>Idea</h2><ul>
+<li>Shuffle the array</li>
+<li>Partition so that, for some <code>j</code><ul>
+<li>entry <code>a[j]</code> is in place</li>
+<li>no larger entry to the left of <code>j</code></li>
+<li>no smaller entry to the right of <code>j</code></li>
+</ul>
+</li>
+<li>Sort each piece recursively</li>
+</ul>
+<h2 id="Code-Sample-4"><a href="#Code-Sample-4" class="headerlink" title="Code Sample"></a>Code Sample</h2><div><div class="fold_hider"><div class="close hider_title">Sample</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Put pivot into right place</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = lo;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i = lo, j = hi + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (v[++i] &lt;= v[pivot] &amp;&amp; i &lt; hi)</span><br><span class="line">            ;</span><br><span class="line">        <span class="keyword">while</span> (v[--j] &gt;= v[pivot] &amp;&amp; j &gt; lo)</span><br><span class="line">            ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        swap(v[i], v[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(v[pivot], v[j]);</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// v is the original array</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Improvement 1. Replace with insertion sort in small array</span></span><br><span class="line">    <span class="keyword">if</span> (lo + CUTOFF &gt;= hi) &#123;</span><br><span class="line">        insertion_sort(v, lo, hi)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Improvement 2. Select appropriate pivot</span></span><br><span class="line">    <span class="keyword">int</span> m = midian(lo, lo + (hi - lo)/<span class="number">2</span>, hi);</span><br><span class="line">    swap(v[m], v[m]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> j = partition(v, lo, hi);</span><br><span class="line">    quick_sort(v, lo, j);</span><br><span class="line">    quick_sort(v, j + <span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Improvement 3. Duplicated keys</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lo &gt;= hi)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> lt = lo, gt = hi;</span><br><span class="line">    <span class="keyword">int</span> i = lo;</span><br><span class="line">    <span class="keyword">int</span> pivot = lo;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= gt) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i] &lt; v[pivot]) &#123;</span><br><span class="line">            swap(v[i], v[lt]);</span><br><span class="line">            ++i;</span><br><span class="line">            ++lt;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (v[i] &gt; v[pivot]) &#123;</span><br><span class="line">            swap(v[i], v[gt]);</span><br><span class="line">            --gt;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            ++i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    quick_sort(v, lo, lt - <span class="number">1</span>);</span><br><span class="line">    quick_sort(v, gt + <span class="number">1</span>, hi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="Analysis-4"><a href="#Analysis-4" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization:</strong><br> <img src="quick-sort-visualization.png" width="75%" height="75%" alt="Quick Sort Visualization"> <center><strong>Figure 7. Quick Sort Visualization </strong></center></li>
+<li><strong>Proposition:</strong><ul>
+<li><strong>Time Complexity:</strong> <ul>
+<li>Best and Average: $\sim N \bullet log(N)$</li>
+<li>Worest: $\sim \frac{1}{2} \bullet N^2$</li>
+<li>Qucik-Selection is almost <strong>linear</strong> time.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>   <img src="sort-conclusion.png" width="75%" height="75%" alt="Sort Conclusion"><br>   <center><strong>Figure 9. Sort Conclusion </strong></center></p>
+
       
     </div>
 
@@ -799,7 +854,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Selection-sort"><span class="nav-number">2.</span> <span class="nav-text">Selection sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">2.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample"><span class="nav-number">2.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">2.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">3.</span> <span class="nav-text">Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-1"><span class="nav-number">3.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-1"><span class="nav-number">3.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-1"><span class="nav-number">3.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-sort"><span class="nav-number">4.</span> <span class="nav-text">Shell sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-2"><span class="nav-number">4.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-2"><span class="nav-number">4.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-2"><span class="nav-number">4.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-sort"><span class="nav-number">5.</span> <span class="nav-text">Merge sort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-sort"><span class="nav-number">6.</span> <span class="nav-text">Quick sort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap-sort"><span class="nav-number">7.</span> <span class="nav-text">Heap sort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Practice"><span class="nav-number">8.</span> <span class="nav-text">Practice</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sort-Complexity"><span class="nav-number">2.</span> <span class="nav-text">Sort Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">Selection sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">3.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample"><span class="nav-number">3.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">3.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">4.</span> <span class="nav-text">Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-1"><span class="nav-number">4.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-1"><span class="nav-number">4.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-1"><span class="nav-number">4.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-sort"><span class="nav-number">5.</span> <span class="nav-text">Shell sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-2"><span class="nav-number">5.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-2"><span class="nav-number">5.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-2"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-sort"><span class="nav-number">6.</span> <span class="nav-text">Merge sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-3"><span class="nav-number">6.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-3"><span class="nav-number">6.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-3"><span class="nav-number">6.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-sort"><span class="nav-number">7.</span> <span class="nav-text">Quick sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-4"><span class="nav-number">7.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-4"><span class="nav-number">7.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-4"><span class="nav-number">7.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap-sort"><span class="nav-number">8.</span> <span class="nav-text">Heap sort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
@@ -840,7 +895,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">13 mins.</span>
+    <span title="Reading time total">19 mins.</span>
   
 </div>
 

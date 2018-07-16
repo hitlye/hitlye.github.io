@@ -146,17 +146,29 @@
 
 
 
-  <meta name="description" content="I&apos;m going home!">
+  <meta name="description" content="Basic Principle In computer evey information is represented with binary form, which means they are interleaving 1 &amp;amp; 0 sequences.  ClarificationWhy binary form and 1 &amp;amp; 0? Compared to analog cir">
+<meta name="keywords" content="computer-system,csapp,18-600">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Representation">
 <meta property="og:url" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/index.html">
 <meta property="og:site_name" content="Yeeeeeeee">
-<meta property="og:description" content="I&apos;m going home!">
+<meta property="og:description" content="Basic Principle In computer evey information is represented with binary form, which means they are interleaving 1 &amp;amp; 0 sequences.  ClarificationWhy binary form and 1 &amp;amp; 0? Compared to analog cir">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-11T04:59:28.082Z">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/typical-c-data-type.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/byte-ordering-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/integer-representation-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/integer-addition-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/integer-practice.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-intuitive-idea.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-structure.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-category.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-example.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/round-example.png">
+<meta property="og:updated_time" content="2018-07-12T22:45:14.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Representation">
-<meta name="twitter:description" content="I&apos;m going home!">
+<meta name="twitter:description" content="Basic Principle In computer evey information is represented with binary form, which means they are interleaving 1 &amp;amp; 0 sequences.  ClarificationWhy binary form and 1 &amp;amp; 0? Compared to analog cir">
+<meta name="twitter:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/typical-c-data-type.png">
 
 
 
@@ -372,8 +384,56 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-12 15:45:14" itemprop="dateModified" datetime="2018-07-12T15:45:14-07:00">2018-07-12</time>
+              
+            
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/" itemprop="url" rel="index"><span itemprop="name">system</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/foundation-of-computer-system/" itemprop="url" rel="index"><span itemprop="name">foundation of computer system</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -402,7 +462,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">4 mins.</span>
               
             </div>
           
@@ -422,7 +482,127 @@
       
 
       
-        
+        <h1 id="Basic-Principle"><a href="#Basic-Principle" class="headerlink" title="Basic Principle"></a>Basic Principle</h1><blockquote>
+<p>In computer evey information is represented with <strong>binary form</strong>, which means they are interleaving 1 &amp; 0 sequences.</p>
+</blockquote>
+<h1 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h1><h2 id="Why-binary-form-and-1-amp-0"><a href="#Why-binary-form-and-1-amp-0" class="headerlink" title="Why binary form and 1 &amp; 0?"></a>Why binary form and 1 &amp; 0?</h2><ul>
+<li>Compared to analog circuit, digital circuit is easier to process and exclude noises.</li>
+<li>In digital circuit, 1 represents high voltage and 0 represents low voltage.</li>
+<li>Then binary comes.<a id="more"></a>
+</li>
+</ul>
+<h2 id="Why-Hexadecimal"><a href="#Why-Hexadecimal" class="headerlink" title="Why Hexadecimal?"></a>Why Hexadecimal?</h2><ul>
+<li>More bits means complex sign or symbol for human to remember, fewer bits means longer numbers which are redundant.</li>
+<li>Then hexadecimal is the balance of complexity and length.</li>
+</ul>
+<h2 id="Word-Size"><a href="#Word-Size" class="headerlink" title="Word Size"></a>Word Size</h2><ul>
+<li>It equals the number of address bits and the integer-valued data.</li>
+</ul>
+<h2 id="Bit-Manipulations"><a href="#Bit-Manipulations" class="headerlink" title="Bit Manipulations"></a>Bit Manipulations</h2><ul>
+<li>Overflow will throw the overflowed bits away.</li>
+<li>~, &amp;, |, ^ are bitwise operators.</li>
+<li>Shift operation:<ul>
+<li>Left shift x &lt;&lt; y is always <strong>logical shift</strong> which means fill with 0’s on right.</li>
+<li>Right shift x &gt;&gt; y has <strong>logical shift</strong> and <strong>arithmetic shift</strong> which means replicating the most significant bit on left.<br>(Arithmetic shift helps to keep math properties of binary when right shift signed negative integers)</li>
+<li>Undefined Behavior: shift amount &lt; 0 or $ \ge $ word size</li>
+</ul>
+</li>
+</ul>
+<h2 id="Typical-C-Data-Type"><a href="#Typical-C-Data-Type" class="headerlink" title="Typical C Data Type"></a>Typical C Data Type</h2><p>   <img src="typical-c-data-type.png" width="50%" height="50%" alt="Typical C Data Type"><br>   <center><strong>Figure 1. Typical C Data Type</strong></center></p>
+<h2 id="Byte-Ordering"><a href="#Byte-Ordering" class="headerlink" title="Byte Ordering"></a>Byte Ordering</h2><ul>
+<li>Big Endian: Sun, PPC Mac, Internet.<br>Least significant byte has highest address.</li>
+<li>Little Endian: x86, ARM processors running Android, iOS, and Windows.<br>Least significant byte has lowest address.</li>
+<li>Example with value - 0x01234567 start from address 0x100<br> <img src="byte-ordering-visualization.png" width="75%" height="75%" alt="Byte Ordering Visualization"> <center><strong>Figure 2. Byte Ordering Visualization</strong></center>
+
+</li>
+</ul>
+<h2 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h2><ul>
+<li>If there is a mix of integers, signed values cast to unsigned &amp; small values cast to large values.</li>
+</ul>
+<h1 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h1><p>Generally speaking, there are two kinds of integer - <strong>signed</strong> and <strong>unsigned</strong>. However, the underlying representation of integer will not get changed when you cast them beteween signed or unsigned.<br><strong>!!!All examples are in 4 bits.</strong><br><strong>!!!All operations are bitwise manipulations.</strong></p>
+<h2 id="Core-principle"><a href="#Core-principle" class="headerlink" title="Core principle"></a>Core principle</h2><p>Coversion from signed integers to unsigned ones or in the other way round keeps bit representations and just do reinterpret.</p>
+<h2 id="Intuitive-Idea-Not-Taken"><a href="#Intuitive-Idea-Not-Taken" class="headerlink" title="Intuitive Idea(Not Taken)"></a>Intuitive Idea(Not Taken)</h2><ul>
+<li><strong>Idea:</strong> Left-most bit is sign bit, others work as normal data.</li>
+<li><strong>Constraint:</strong> Basic math doest not work. E.g. <code>-0 + 1 = -1</code> and <code>7 + 1 = 0</code></li>
+</ul>
+<h2 id="2s-complement"><a href="#2s-complement" class="headerlink" title="2s complement"></a>2s complement</h2><ul>
+<li><strong>Idea:</strong> Positive integer does not get changed, and use <strong>2s complement</strong> to represent negative numbers.</li>
+<li><strong>Explanation of 2s complement:</strong> Represent negative integer as complement of its absolute value plus 1, in Bitwise.<br>  $$ \sim (0101)_2 + (1)_2 = (1011)_2 $$<br>  <strong>Note:</strong> The left-most bit indicates the sign!</li>
+<li><strong>Advantages:</strong> Math works!!!<br>$$ \begin{align*}<br>(1111)_{2} + (0001)_2 &amp;= (0000)_2 \\<br>-1 + 1 &amp;= 0<br>\end{align*}<br>$$</li>
+<li><strong>Special Value:</strong> $ \sim(1000)_2 + 1 = (1000)_2 $</li>
+</ul>
+<h2 id="Visualization"><a href="#Visualization" class="headerlink" title="Visualization"></a>Visualization</h2><p>   <img src="integer-representation-visualization.png" width="75%" height="75%" alt="Integer Representation Visualization"><br>   <center><strong>Figure 3. Integer Representation Visualization</strong></center></p>
+<h2 id="General-Formula"><a href="#General-Formula" class="headerlink" title="General Formula"></a>General Formula</h2><p>With <strong>n</strong> bits:</p>
+<ul>
+<li><strong>Range:</strong><ul>
+<li>Signed: $ {-2}^{n-1} \sim 2^{n-1} - 1\rightarrow off-balance \ between \ positive \ and \ negative \ numbers$</li>
+<li>Unsigned: $ 0 \sim 2^{n} - 1$</li>
+</ul>
+</li>
+<li><strong>Convertion to decimal</strong><ul>
+<li>$ B2U(X) = \sum\limits_{i=0}^{n-1} x_i \bullet 2^i $</li>
+<li>$ B2T(X) = -x_{n-1} \bullet 2^{n-1} + \sum\limits_{i=0}^{n-2} x_i \bullet 2^i $</li>
+</ul>
+</li>
+</ul>
+<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><ul>
+<li><strong>Addition/Substraction:</strong><br> <img src="integer-addition-visualization.png" width="75%" height="75%" alt="Integer Addition Visualization"> <center><strong>Figure 4. Integer Addition Visualization</strong></center></li>
+<li><strong>Multiplication:</strong> Up to $ 2 \bullet n$ bits, throw overflowed bits away.</li>
+</ul>
+<h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2><p>  <img src="integer-practice.png" width="50%" height="50%" alt="Integer Practice"><br>  <center><strong>Figure 5. Integer Practice</strong></center></p>
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><ul>
+<li>Based on <a href="https://en.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a>, string can also be represented as integer number or a collection of 1 &amp; 0 sequence in computer.</li>
+</ul>
+<h1 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h1><h2 id="Intuitive-Idea-Not-taken"><a href="#Intuitive-Idea-Not-taken" class="headerlink" title="Intuitive Idea(Not taken)"></a>Intuitive Idea(Not taken)</h2><ul>
+<li><strong>Idea:</strong> $ \sum\limits_{k=-j}^{i} b_k \bullet 2^k $<br><img src="float-intuitive-idea.png" width="75%" height="50%" alt="Float Intuitive Idea"><center><strong>Figure 6. Float Intuitive Idea</strong></center></li>
+<li><strong>Constraint:</strong> Inefficient - Big value with lots of 0s and range is small.</li>
+</ul>
+<h2 id="IEEE-Floating-Point"><a href="#IEEE-Floating-Point" class="headerlink" title="IEEE Floating Point"></a>IEEE Floating Point</h2><ul>
+<li>Structure:<br>$$ (-1)^s \bullet M \bullet 2^E $$<ul>
+<li><strong>Sign bit</strong> s - sign bit.</li>
+<li><strong>Significand</strong> M (mantissa) - frac part.</li>
+<li><strong>Exponent</strong> E - exp part.<br><img src="float-structure.png" width="75%" height="50%" alt="Float Structure"><center><strong>Figure 7. Float Structure</strong></center></li>
+</ul>
+</li>
+<li>Categories:<br><img src="float-category.png" width="75%" height="50%" alt="Float Category"><br><center><strong>Figure 8. Float Category</strong></center><ul>
+<li>Normalized Float<ul>
+<li>M is $ 1.f_1f_2f_3f_4 $ with get an extra bit “for free”.</li>
+<li>$ E = unsigned \ encoded \ value \ of \ the \ bits - (2^{k-1} - 1)$ and E is any one except all 0.</li>
+</ul>
+</li>
+<li>Denormalized Float<ul>
+<li>M is $ 0.f_1f_2f_3f_4 $.</li>
+<li>$ E = 1 - (2^{k-1} - 1) $ and E is all 0.</li>
+</ul>
+</li>
+<li>Special Float<ul>
+<li>$ \pm \ INF: \ exp = 111…1, \ frac = 000…0 $</li>
+<li>$ \pm \ NAN: \ exp = 111…1, \ frac \neq 000…0 $</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Example with s: 1 bit, exp: 4-bits, frac: 3-bits. How about Distribution?<br><img src="float-example.png" width="75%" height="75%" alt="Float Example"><center><strong>Figure 9. Float Example </strong></center>
+
+</li>
+</ul>
+<h2 id="Calulation"><a href="#Calulation" class="headerlink" title="Calulation"></a>Calulation</h2><ul>
+<li><strong>Addition/Substraction:</strong> Extend samll <code>exp</code> to large one and then do normal addition.<br>(Associative does not work: (3.14 + 1e10) - 1e10 = 0, 3.14 + (1e10 - 1e10) = 3.14)</li>
+<li><strong>Multiplication:</strong> E = E1 + E2, M = M1 x M2<br>(Associatice and Distribution do not work: A - (1e20 x 1e20) x 1e-20 = inf, D - 1e20 x (1e20-1e20) = 0)</li>
+</ul>
+<h2 id="Rounding"><a href="#Rounding" class="headerlink" title="Rounding"></a>Rounding</h2><ul>
+<li>Methods: <strong>Nearest Even</strong></li>
+<li>Explanation:<ul>
+<li>> half way: round up.</li>
+<li>&lt; half way: round down.</li>
+<li>= half way: round to nearest even.<br>(In binary form, only occurs when redundant bits are 100..00)</li>
+</ul>
+</li>
+<li>Why: All others are statiscally biased.</li>
+<li>Example:<br><img src="round-example.png" width="75%" height="75%" alt="Round Example"><center><strong>Figure 10. Round Example </strong></center>
+</li>
+</ul>
+
       
     </div>
 
@@ -439,6 +619,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/computer-system/" rel="tag"># computer-system</a>
+          
+            <a href="/tags/csapp/" rel="tag"># csapp</a>
+          
+            <a href="/tags/18-600/" rel="tag"># 18-600</a>
+          
+        </div>
       
 
       
@@ -506,8 +696,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -644,6 +843,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Principle"><span class="nav-number">1.</span> <span class="nav-text">Basic Principle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-binary-form-and-1-amp-0"><span class="nav-number">2.1.</span> <span class="nav-text">Why binary form and 1 &amp; 0?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Hexadecimal"><span class="nav-number">2.2.</span> <span class="nav-text">Why Hexadecimal?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Size"><span class="nav-number">2.3.</span> <span class="nav-text">Word Size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Manipulations"><span class="nav-number">2.4.</span> <span class="nav-text">Bit Manipulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typical-C-Data-Type"><span class="nav-number">2.5.</span> <span class="nav-text">Typical C Data Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Byte-Ordering"><span class="nav-number">2.6.</span> <span class="nav-text">Byte Ordering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting"><span class="nav-number">2.7.</span> <span class="nav-text">Casting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-principle"><span class="nav-number">3.1.</span> <span class="nav-text">Core principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-Taken"><span class="nav-number">3.2.</span> <span class="nav-text">Intuitive Idea(Not Taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2s-complement"><span class="nav-number">3.3.</span> <span class="nav-text">2s complement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-number">3.4.</span> <span class="nav-text">Visualization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General-Formula"><span class="nav-number">3.5.</span> <span class="nav-text">General Formula</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation"><span class="nav-number">3.6.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">3.7.</span> <span class="nav-text">Practice</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">4.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Float"><span class="nav-number">5.</span> <span class="nav-text">Float</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-taken"><span class="nav-number">5.1.</span> <span class="nav-text">Intuitive Idea(Not taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-Floating-Point"><span class="nav-number">5.2.</span> <span class="nav-text">IEEE Floating Point</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calulation"><span class="nav-number">5.3.</span> <span class="nav-text">Calulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rounding"><span class="nav-number">5.4.</span> <span class="nav-text">Rounding</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -678,7 +893,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">13 mins.</span>
+    <span title="Reading time total">19 mins.</span>
   
 </div>
 
@@ -843,6 +1058,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
