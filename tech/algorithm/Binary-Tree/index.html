@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic|MONACO:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/plant_favicon_apple_touch.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/plant_favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/plant_favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="ScenarioNow you have a binary tree, then ….">
+<meta name="keywords" content="tree,binary-tree,balanced-search-tree,2-3-search-tree,red-black-tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Binary Tree">
+<meta property="og:url" content="http://yoursite.com/tech/algorithm/Binary-Tree/index.html">
+<meta property="og:site_name" content="Yeeeeeeee">
+<meta property="og:description" content="ScenarioNow you have a binary tree, then ….">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/tree_scenario.png">
+<meta property="og:updated_time" content="2018-07-24T07:17:12.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Binary Tree">
+<meta name="twitter:description" content="ScenarioNow you have a binary tree, then ….">
+<meta name="twitter:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/tree_scenario.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/tech/algorithm/Binary-Tree/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Binary Tree | Yeeeeeeee</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeeeeeeee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tech/algorithm/Binary-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo">
+      <meta itemprop="description" content="I'm going home!">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeeeeeeee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Binary Tree
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-19 22:12:50" itemprop="dateCreated datePublished" datetime="2018-07-19T22:12:50-07:00">2018-07-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-24 00:17:12" itemprop="dateModified" datetime="2018-07-24T00:17:12-07:00">2018-07-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">6 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Scenario"><a href="#Scenario" class="headerlink" title="Scenario"></a>Scenario</h1><p>Now you have a binary tree, then ….</p>
+<img src="/tech/algorithm/Binary-Tree/tree_scenario.png" title="Tree Scenario">
+<a id="more"></a>
+<h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><blockquote>
+<p>A binary tree is either:</p>
+<ul>
+<li>Empty</li>
+<li>Two disjoint binary trees(left and right)</li>
+</ul>
+</blockquote>
+<p><strong>Code representation:</strong><br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * K for key, v for value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  K key;</span><br><span class="line">  V value;</span><br><span class="line">  <span class="comment">// number of nodes in this subtree</span></span><br><span class="line">  <span class="keyword">size_t</span> count;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&lt;K, V&gt; *<span class="title">lchild</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&lt;K, V&gt; *<span class="title">rchild</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// constructor</span></span><br><span class="line">  Node(K k, V v) :key(k), value(v), count(<span class="number">1</span>), lchild(<span class="literal">nullptr</span>), rchild(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pre-define some common node</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">using</span> TNode = struct Node&lt;K, V&gt;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Travesal"><a href="#Travesal" class="headerlink" title="Travesal"></a>Travesal</h1><h1 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h1><p>Refer to <strong><a href="/tech/algorithm/Methods-of-Sort#Heap-sort">Heap Sort</a></strong></p>
+<h1 id="Binary-Search-Tree-BST"><a href="#Binary-Search-Tree-BST" class="headerlink" title="Binary Search Tree(BST)"></a>Binary Search Tree(BST)</h1><h2 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>A BST is a <strong>binary tree</strong> in <strong>symmetric order.</strong><br>  Symmetric Order: Each node has a key, and every node’s key is:</p>
+<ul>
+<li><strong>Larger</strong> than all keys in its <strong>left subtree.</strong></li>
+<li><strong>Smaller</strong> than all keys in its <strong>right subtree.</strong></li>
+</ul>
+</blockquote>
+<h2 id="APIs"><a href="#APIs" class="headerlink" title="APIs"></a>APIs</h2><p>There are 6 operations: <code>get()</code>, <code>put()</code>, <code>rank()</code>, <code>floor()</code>, <code>ceiling()</code> and <code>delete()</code><br><strong>NOTE</strong>: Recursive function xxx.l/rchild = f(xxx.l/rchild, …) will help to keep the relationship between child and parrent, which is very convenient in some operations.</p>
+<ul>
+<li><p><code>V get(T key)</code> - Find &amp;&amp; Return <strong>value</strong> of the given key.</p>
+<div><div class="fold_hider"><div class="close hider_title">get</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//get val of given key, if no sunch key, then return nullptr</span></span><br><span class="line"><span class="function">V <span class="title">get</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">  V found_value = null_value_;</span><br><span class="line">  <span class="comment">// temp node for travasing the tree</span></span><br><span class="line">  TNode&lt;K, V&gt; *node = root_;</span><br><span class="line">  <span class="keyword">while</span> (node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (node-&gt;key &lt; key) &#123;</span><br><span class="line">      node = node-&gt;rchild;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &gt; key) &#123;</span><br><span class="line">      node = node-&gt;lchild;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      found_value = node-&gt;value;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> found_value;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+<li><p><code>void put(K key, V value)</code> - put &lt;key, val&gt; pair into BST</p>
+<div><div class="fold_hider"><div class="close hider_title">put</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// put &lt;key, val&gt; pair as a node in BST</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">  root_ = put(root_, key, value);</span><br><span class="line">  ++size_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// recursively search until find the right place of given &lt;key, value&gt;</span></span><br><span class="line"><span class="comment">// two scenario:</span></span><br><span class="line"><span class="comment">// 1. find existing key, replace with new val</span></span><br><span class="line"><span class="comment">// 2. meet a nullptr node means the pair should be inserted here</span></span><br><span class="line"><span class="comment">// <span class="doctag">NOTE:</span> pattern xxx = put(xxx, key, value) is used to maintain the parrent info</span></span><br><span class="line">TNode&lt;K, V&gt; *put(TNode&lt;K, V&gt; *node, K key, V value) &#123;</span><br><span class="line">  <span class="comment">// locate key's position</span></span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">    TNode&lt;K, V&gt; *node = <span class="keyword">new</span> TNode&lt;K, V&gt;(key, value);</span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// binary search &amp; update subtree count</span></span><br><span class="line">  <span class="keyword">if</span> (node-&gt;key &gt; key) node-&gt;lchild = put(node-&gt;lchild, key, value);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &lt; key) node-&gt;rchild = put(node-&gt;rchild, key, value);</span><br><span class="line">  <span class="keyword">else</span> node-&gt;value = value;</span><br><span class="line">  node-&gt;count = <span class="number">1</span> + count(node-&gt;lchild) + count(node-&gt;rchild);</span><br><span class="line">  <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+<li><p><code>size_t rank(TNode&lt;K, V&gt; *node, K key)</code> - return how many k for k &lt;= key</p>
+<div><div class="fold_hider"><div class="close hider_title">rank</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// rank means how many k for k &lt;= key</span></span><br><span class="line"><span class="keyword">size_t</span> rank(K key) &#123;</span><br><span class="line">  <span class="keyword">return</span> rank(root_, key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// recursively find until meeting the biggest k in k &lt;= key</span></span><br><span class="line"><span class="comment">// 3 cases:</span></span><br><span class="line"><span class="comment">// 1. node-&gt;key == key, return 1;</span></span><br><span class="line"><span class="comment">// 2. node-&gt;key &gt; key, search in node-&gt;lchild;</span></span><br><span class="line"><span class="comment">// 3. node-&gt;key &lt; key, 1 + node-&gt;left-&gt;count + search in node-&gt;rchild</span></span><br><span class="line"><span class="keyword">size_t</span> rank(TNode&lt;K, V&gt; *node, K key) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// error handling</span></span><br><span class="line">  <span class="keyword">if</span> (node-&gt;key == key) <span class="keyword">return</span> <span class="number">1</span> + count(node-&gt;lchild); <span class="comment">// case 1</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &gt; key)&#123;</span><br><span class="line">    <span class="keyword">return</span> rank(node-&gt;lchild, key); <span class="comment">// case 2</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> + count(node-&gt;lchild) + rank(node-&gt;rchild, key); <span class="comment">// case 3</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+<li><p><code>V floor(K key)</code> - return the biggest k for k &lt;= key</p>
+<div><div class="fold_hider"><div class="close hider_title">floor</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// floor means the biggest k in k &lt;= key</span></span><br><span class="line"><span class="function">V <span class="title">floor</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">  TNode&lt;K, V&gt; *node = <span class="built_in">floor</span>(root_, key);</span><br><span class="line">  <span class="comment">// key is the smallest key</span></span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> null_value_;</span><br><span class="line">  <span class="keyword">return</span> node-&gt;key;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// recursively search the biggest k for k &lt;= key</span></span><br><span class="line"><span class="comment">// 3 cases:</span></span><br><span class="line"><span class="comment">// 1. node-&gt;key == key, return node</span></span><br><span class="line"><span class="comment">// 2. node-&gt;key &gt; key, search in node-&gt;lchild</span></span><br><span class="line"><span class="comment">// 3. node-&gt;key &lt; key, target &gt;= node-&gt;key</span></span><br><span class="line">TNode&lt;K, V&gt; *<span class="built_in">floor</span>(TNode&lt;K, V&gt; *node, K key) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> node; <span class="comment">// error handling</span></span><br><span class="line">  <span class="keyword">if</span> (node-&gt;key == key) <span class="keyword">return</span> node; <span class="comment">// case 1</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &gt; key) <span class="keyword">return</span> <span class="built_in">floor</span>(node-&gt;lchild, key); <span class="comment">// case 2</span></span><br><span class="line">  <span class="keyword">else</span> &#123; <span class="comment">// case 3</span></span><br><span class="line">    TNode&lt;K, V&gt; *right = <span class="built_in">floor</span>(node-&gt;rchild, key);</span><br><span class="line">    <span class="keyword">return</span> right == <span class="literal">nullptr</span> ? node : right;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+<li><p><code>V ceiling(K key)</code> - return smallest k for k &gt;= key</p>
+<div><div class="fold_hider"><div class="close hider_title">ceiling</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ceil means the smallest k in k &gt;= key</span></span><br><span class="line"><span class="function">V <span class="title">ceiling</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">  TNode&lt;K, V&gt; *node = ceiling(root_, key);</span><br><span class="line">  <span class="comment">// key is the biggest key</span></span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> null_value_;</span><br><span class="line">  <span class="keyword">return</span> node-&gt;key;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// recursively search the smallest k for k &gt;= key</span></span><br><span class="line"><span class="comment">// 3 cases:</span></span><br><span class="line"><span class="comment">// 1. node-&gt;key == key, return node</span></span><br><span class="line"><span class="comment">// 2. node-&gt;key &lt; key, search in node-&gt;rchild</span></span><br><span class="line"><span class="comment">// 3. node-&gt;key &gt; key, target &lt;= node-&gt;key</span></span><br><span class="line">TNode&lt;K, V&gt; *ceiling(TNode&lt;K, V&gt; *node, K key) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> node; <span class="comment">// error handling</span></span><br><span class="line">  <span class="keyword">if</span> (node-&gt;key == key) <span class="keyword">return</span> node; <span class="comment">// case 1</span></span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &lt; key) <span class="keyword">return</span> ceiling(node-&gt;rchild, key); <span class="comment">// case 2</span></span><br><span class="line">  <span class="keyword">else</span> &#123; <span class="comment">// case 3</span></span><br><span class="line">    TNode&lt;K, V&gt; *left = ceiling(node-&gt;lchild, key);</span><br><span class="line">    <span class="keyword">return</span> left == <span class="literal">nullptr</span> ? node : left;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+<li><p><code>void remove(K key)</code> - remove &lt;key, value&gt; pair in BST</p>
+<div><div class="fold_hider"><div class="close hider_title">remove</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// remove min node in tree</span></span><br><span class="line">TNode&lt;K, V&gt; *remove_min(TNode&lt;K, V&gt; *node) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node-&gt;lchild == <span class="literal">nullptr</span>) <span class="keyword">return</span> node-&gt;rchild;</span><br><span class="line">  node-&gt;lchild = remove_min(node-&gt;lchild);</span><br><span class="line">  node-&gt;count = <span class="number">1</span> + count(node-&gt;lchild) + count(node-&gt;rchild);</span><br><span class="line">  <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// remove &lt;key, value&gt; pair from current BST by given kye</span></span><br><span class="line"><span class="comment">// 3 cases:</span></span><br><span class="line"><span class="comment">// 1. no child: remove directly</span></span><br><span class="line"><span class="comment">// 2. 1 child: remove than link child to its parent</span></span><br><span class="line"><span class="comment">// 3. 2 child: replace key with its successor which means ceiling(key)</span></span><br><span class="line">TNode&lt;K, V&gt; *remove(TNode&lt;K, V&gt; *node, K key) &#123;</span><br><span class="line">  <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>; <span class="comment">// not found</span></span><br><span class="line">  <span class="keyword">if</span> (node-&gt;key &gt; key) &#123;</span><br><span class="line">    node-&gt;lchild = remove(node-&gt;lchild, key); <span class="comment">// in left subtree</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node-&gt;key &lt; key) &#123;</span><br><span class="line">    node-&gt;rchild = remove(node-&gt;rchild, key); <span class="comment">// in right subtree</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// found key</span></span><br><span class="line">    --size_;</span><br><span class="line">    <span class="keyword">if</span> (node-&gt;lchild == <span class="literal">nullptr</span>) &#123; <span class="comment">// case 1 &amp; 2</span></span><br><span class="line">      TNode&lt;K, V&gt; *right = node-&gt;rchild;</span><br><span class="line">      <span class="keyword">delete</span> node;</span><br><span class="line">      <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node-&gt;rchild == <span class="literal">nullptr</span>) &#123; <span class="comment">// case 1 &amp; 2</span></span><br><span class="line">      TNode&lt;K, V&gt; *left = node-&gt;lchild;</span><br><span class="line">      <span class="keyword">delete</span> node;</span><br><span class="line">      <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// case 3. replace node with successor</span></span><br><span class="line">    TNode&lt;K, V&gt; *successor = node-&gt;rchild;</span><br><span class="line">    <span class="keyword">while</span> (successor-&gt;lchild != <span class="literal">nullptr</span>) successor = successor-&gt;lchild;</span><br><span class="line">    successor-&gt;rchild = remove_min(successor);</span><br><span class="line">    successor-&gt;lchild = node-&gt;lchild;</span><br><span class="line">    <span class="keyword">delete</span> node;</span><br><span class="line">    node = successor;</span><br><span class="line">  &#125;</span><br><span class="line">  node-&gt;count = <span class="number">1</span> + count(node-&gt;lchild) + count(node-&gt;rchild);</span><br><span class="line">  <span class="keyword">return</span> node;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// remove &lt;key, value&gt; pair from current BST by given key</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(K key)</span> </span>&#123;</span><br><span class="line">  root_ = remove(root_, key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+</li>
+</ul>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li>Time complexity is input-data-sensitive, at a random order, both <strong>search</strong> and <strong>insert</strong> are $$ \sim 1.39lg\bullet N $$ But if at an increase order, both are $$ \sim N $$</li>
+</ul>
+<h1 id="Balanced-Search-Tree"><a href="#Balanced-Search-Tree" class="headerlink" title="Balanced Search Tree"></a>Balanced Search Tree</h1><p>Since the above BST is very sensitive to input data, we have to introduce an advanced version to handle every input and still give the awesome performance.</p>
+<h2 id="Definition-2"><a href="#Definition-2" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>Balanced Search Tree is a kind of Binary Search Tree(BST) with the self-balanced function, which makes the tree is perfect balanced, via, the length differences of every leaf node are not bigger than 1.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tree/" rel="tag"># tree</a>
+          
+            <a href="/tags/binary-tree/" rel="tag"># binary-tree</a>
+          
+            <a href="/tags/balanced-search-tree/" rel="tag"># balanced-search-tree</a>
+          
+            <a href="/tags/2-3-search-tree/" rel="tag"># 2-3-search-tree</a>
+          
+            <a href="/tags/red-black-tree/" rel="tag"># red-black-tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tech/util/Tech-Paper-Index/" rel="next" title="Tech Paper Index">
+                <i class="fa fa-chevron-left"></i> Tech Paper Index
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/tech/system/foundation_of_computer_system/Machine-Level-Programming/" rel="prev" title="Machine-Level Programming">
+                Machine-Level Programming <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Leo" />
+            
+              <p class="site-author-name" itemprop="name">Leo</p>
+              <p class="site-description motion-element" itemprop="description">I'm going home!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/hitlye" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:hit.lye@gmail.com" target="_blank" title="Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/ye-li-005946134" target="_blank" title="Linkedin"><i class="fa fa-fw fa-linkedin"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Definition"><span class="nav-number">2.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travesal"><span class="nav-number">3.</span> <span class="nav-text">Travesal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Complete-Binary-Tree"><span class="nav-number">4.</span> <span class="nav-text">Complete Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Search-Tree-BST"><span class="nav-number">5.</span> <span class="nav-text">Binary Search Tree(BST)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-1"><span class="nav-number">5.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIs"><span class="nav-number">5.2.</span> <span class="nav-text">APIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Balanced-Search-Tree"><span class="nav-number">6.</span> <span class="nav-text">Balanced Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-2"><span class="nav-number">6.1.</span> <span class="nav-text">Definition</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo</span>
+
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">32 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

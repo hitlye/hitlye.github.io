@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Comic Sans MS:300,300italic,400,400italic,700,700italic|MONACO:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/plant_favicon_apple_touch.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/plant_favicon.ico?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/plant_favicon.ico?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Explanation Since the CPU will only receive 0/1 digital signal, all code will finally be translated to a kind of 0/1 sequences - called Machine Code. Therefore, Machine-Level Programming means a kind">
+<meta name="keywords" content="computer-system,csapp,18-600">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Level Programming">
+<meta property="og:url" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/index.html">
+<meta property="og:site_name" content="Yeeeeeeee">
+<meta property="og:description" content="Explanation Since the CPU will only receive 0/1 digital signal, all code will finally be translated to a kind of 0/1 sequences - called Machine Code. Therefore, Machine-Level Programming means a kind">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/runtime-stack-overview.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/machine-code-vs-assembly-code.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/runtime-stack-overview.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/local-data-management.png">
+<meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/buffer-overflow-attack.png">
+<meta property="og:updated_time" content="2018-07-27T22:16:11.095Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine-Level Programming">
+<meta name="twitter:description" content="Explanation Since the CPU will only receive 0/1 digital signal, all code will finally be translated to a kind of 0/1 sequences - called Machine Code. Therefore, Machine-Level Programming means a kind">
+<meta name="twitter:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/runtime-stack-overview.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Machine-Level Programming | Yeeeeeeee</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yeeeeeeee</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tech/system/foundation_of_computer_system/Machine-Level-Programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leo">
+      <meta itemprop="description" content="I'm going home!">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeeeeeeee">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Machine-Level Programming
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-24 23:02:35" itemprop="dateCreated datePublished" datetime="2018-07-24T23:02:35-07:00">2018-07-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-07-27 15:16:11" itemprop="dateModified" datetime="2018-07-27T15:16:11-07:00">2018-07-27</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/" itemprop="url" rel="index"><span itemprop="name">tech</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/" itemprop="url" rel="index"><span itemprop="name">system</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tech/system/foundation-of-computer-system/" itemprop="url" rel="index"><span itemprop="name">foundation of computer system</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h1><blockquote>
+<p>Since the CPU will only receive 0/1 digital signal, all code will finally be translated to a kind of 0/1 sequences - called <strong>Machine Code</strong>. Therefore, Machine-Level Programming means a kind of low-level programming which is based on and closed to machine code. In addition, it will cover related underlying techniques.</p>
+</blockquote>
+<p>Here is the low-level memory distribution of a runtime program:<br><a id="more"></a><br>   <img src="runtime-stack-overview.png" width="25%" height="25%" alt="Runtime Stack Overview"><br>The following machine-level content has four parts: Introduction to <strong>Assembly Language, Data, Procedure, Security</strong></p>
+<h1 id="Introduction-to-Assembly-Language"><a href="#Introduction-to-Assembly-Language" class="headerlink" title="Introduction to Assembly Language"></a>Introduction to Assembly Language</h1><p>Why we mention Assembly Language in Machine-Level Programming? The answer is that we want to use assembly code to replace machine code in introducing Machine-Level Programm. First you can take a look at a comparation between assembly code with machine code.<br>   <img src="machine-code-vs-assembly-code.png" width="75%" height="75%" alt="Machine Code VS Assembly Code"><br>   <center><strong>Figure 1. Machine Code VS Assembly Code </strong></center></p>
+<p>I believe that if you will feel the assemble code is more understandable than machine code. In addition, assembly language is a <strong>mnemonic set</strong> of machine language instead of an <strong>ordianry</strong> programming languages, since it does not provides any abstraction.<br>Reasons why we choose assembly code instead of machine code:</p>
+<ol>
+<li>Easy to understand and straight forward</li>
+<li>Very low-level to be helpul to introduce Machine-Level Programming</li>
+</ol>
+<p>What’s more, what does CPU receive and run is a bunch of directives via <strong>instructions.</strong> So both machine language and assemblly language are instruction-oriented languages. There consists of combinations of instructions.</p>
+<h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><p>Data is the element of a program. We should consider how to represent and store it.</p>
+<h2 id="Representation"><a href="#Representation" class="headerlink" title="Representation"></a>Representation</h2><p>The last post(<a href="/tech/system/foundation_of_computer_system/Data-Representation">Data Representation</a>) already gives the machine-level representation of data.</p>
+<h2 id="Organization-amp-Store"><a href="#Organization-amp-Store" class="headerlink" title="Organization &amp; Store"></a>Organization &amp; Store</h2><p><strong>Principle: </strong> The whole memory is just a big continuous space with address of each byte. e.g. 0x00000000 - 0xFFFFFFFF(0 - 4GB)<br><strong>Elementary Types:</strong> It will be orgnized in its representation form and should consider the endianness. e.g. 15 - 0x0F<br><strong>Array:</strong> It will be orgnized in a part of continuous address with the <strong>row major</strong> mode. e.g. int a[10][10] has address: 0 - 400, a[0][0-9] locates in 0 - 40 and a[1][0-9] locates in 40 - 80.<br><strong>Compound Types</strong></p>
+<ul>
+<li><strong>Struct(Class):</strong> It will be orgnized in a part of continuous adress with each member variable following the declaration order in the space.</li>
+<li><strong>Union(c specified type):</strong> It will share the same address and space, the total space size equals the largest element size.<br><strong>Note:</strong> The compound type will need to satisfy the data alignment requirements in most of the modern machine<br><strong>Reason:</strong> The data quantity transfering per round with the BUS is fixed. In x86-64 is 64 bits, IA32-32 is 32 bits. So fitting these will improve CPU efficiency.<br><strong>Default Rule(In x86-64):</strong> The address of primitive type (size k bytes) should be a multiple of k, and the address of compound type should be a multiple of 4.</li>
+</ul>
+<h1 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h1><p>Procedure is the core abstraction to improve code readability and reusability, it does not have any efficiency improvement on program running speed. Conversely, it will slow down your program. And it’s mainly underlying technique is <strong>Stack</strong>.<br>   <img src="runtime-stack-overview.png" width="50%" height="50%" alt="Runtime Stack Overview"><br>   <center><strong>Figure 2. Runtime Stack Overview </strong></center></p>
+<p>In order to implement a procedure, we will ensure the following three function: Pass control, Pass data and Manage local data inside a subroutine.</p>
+<h2 id="Pass-Control"><a href="#Pass-Control" class="headerlink" title="Pass Control"></a>Pass Control</h2><p>Two instructions to implement this function: <code>callq function_name</code> and <code>retq</code></p>
+<ul>
+<li><code>callq</code>: push the next instruction address into stack, and jump to address of <strong>function_name</strong> to run this function.</li>
+<li><code>retq</code>: pop the current top content of stack, treat it as the intruction’s address, run it.</li>
+</ul>
+<h2 id="Pass-Data"><a href="#Pass-Data" class="headerlink" title="Pass Data"></a>Pass Data</h2><p>In machine-level, data is transfered by <strong>Register</strong> which is a kind of small size container. Very fast!<br>The fist 6 arguments are passed by 6 registers: %rdi, %rsi, %rdx, %rcx, %r8, %9.<br>The other arguments are passed by stack with push and pop. But before instruction <strong>callq</strong></p>
+<h2 id="Local-Data-Management"><a href="#Local-Data-Management" class="headerlink" title="Local Data Management"></a>Local Data Management</h2><p>The local variable are stored in stack with push and pop operations.<br>   <img src="local-data-management.png" width="50%" height="50%" alt="Local Data Management"><br>   <center><strong>Figure 3. Local Data Management </strong></center></p>
+<h1 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h1><p>We will introduce some machine level attacks here and also give some defense teniques.</p>
+<h2 id="Attack-Buffer-Overflow"><a href="#Attack-Buffer-Overflow" class="headerlink" title="Attack: Buffer Overflow"></a>Attack: Buffer Overflow</h2><p>From above introductins, we know that memory is a continous space, so it is easily for Hackers to access and modify unexpected space, especially modify stack content. For example, if we define a local variable to receive user input data with 10 bytes. But what if we do not limit the length of user input data? It will overwrite the <strong>Address!</strong> Then they can control the run order of our program.<br>   <img src="buffer-overflow-attack.png" width="50%" height="50%" alt="Buffer Overflow Attack"><br>   <center><strong>Figure 4. Buffer Overflow Attack </strong></center></p>
+<h2 id="Defense-Strategies"><a href="#Defense-Strategies" class="headerlink" title="Defense Strategies:"></a>Defense Strategies:</h2><ul>
+<li>Limit the input data size</li>
+<li>Randomized the stack address by insert a random size space in front of stack start address. Then it is hard for hackers to figure about the Figure 4’s <strong>B</strong> address.</li>
+<li>Canary: each time run a subroutine, we assign a special value in the stack frame, and in the return period, we check if this value is modified.</li>
+<li>Non-executable: Make CPU do not run instructions in stack memory.</li>
+</ul>
+<h2 id="Attack-Return-oriented-Gadgets"><a href="#Attack-Return-oriented-Gadgets" class="headerlink" title="Attack: Return-oriented Gadgets"></a>Attack: Return-oriented Gadgets</h2><ul>
+<li>Disassemble program to find useful gadgets(Subroutines).</li>
+<li>Only modify the return address to make program run target gadgets.</li>
+<li>Does not overcome the Canary Defense Strategry.</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/computer-system/" rel="tag"># computer-system</a>
+          
+            <a href="/tags/csapp/" rel="tag"># csapp</a>
+          
+            <a href="/tags/18-600/" rel="tag"># 18-600</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tech/algorithm/Binary-Tree/" rel="next" title="Binary Tree">
+                <i class="fa fa-chevron-left"></i> Binary Tree
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Leo" />
+            
+              <p class="site-author-name" itemprop="name">Leo</p>
+              <p class="site-description motion-element" itemprop="description">I'm going home!</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/hitlye" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:hit.lye@gmail.com" target="_blank" title="Mail"><i class="fa fa-fw fa-envelope"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/ye-li-005946134" target="_blank" title="Linkedin"><i class="fa fa-fw fa-linkedin"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Explanation"><span class="nav-number">1.</span> <span class="nav-text">Explanation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-Assembly-Language"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Assembly Language</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data"><span class="nav-number">3.</span> <span class="nav-text">Data</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation"><span class="nav-number">3.1.</span> <span class="nav-text">Representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Organization-amp-Store"><span class="nav-number">3.2.</span> <span class="nav-text">Organization &amp; Store</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Procedure"><span class="nav-number">4.</span> <span class="nav-text">Procedure</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-Control"><span class="nav-number">4.1.</span> <span class="nav-text">Pass Control</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-Data"><span class="nav-number">4.2.</span> <span class="nav-text">Pass Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-Data-Management"><span class="nav-number">4.3.</span> <span class="nav-text">Local Data Management</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Security"><span class="nav-number">5.</span> <span class="nav-text">Security</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-Buffer-Overflow"><span class="nav-number">5.1.</span> <span class="nav-text">Attack: Buffer Overflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defense-Strategies"><span class="nav-number">5.2.</span> <span class="nav-text">Defense Strategies:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attack-Return-oriented-Gadgets"><span class="nav-number">5.3.</span> <span class="nav-text">Attack: Return-oriented Gadgets</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leo</span>
+
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">32 mins.</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

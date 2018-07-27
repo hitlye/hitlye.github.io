@@ -155,7 +155,7 @@
 <meta property="og:description" content="ScenarioThere are two significant ordering methods:  Last In First Out(FIFO) First In First Out(LIFO)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Stack-Queue/lifo_vs_fifo.png">
-<meta property="og:updated_time" content="2018-07-01T08:55:16.959Z">
+<meta property="og:updated_time" content="2018-07-20T04:55:26.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stack &amp; Queue">
 <meta name="twitter:description" content="ScenarioThere are two significant ordering methods:  Last In First Out(FIFO) First In First Out(LIFO)">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-01 01:55:16" itemprop="dateModified" datetime="2018-07-01T01:55:16-07:00">2018-07-01</time>
+                <time title="Modified: 2018-07-19 21:55:26" itemprop="dateModified" datetime="2018-07-19T21:55:26-07:00">2018-07-19</time>
               
             
           </span>
@@ -484,8 +484,22 @@
 </ol>
 <h2 id="Two-stack"><a href="#Two-stack" class="headerlink" title="Two stack"></a>Two stack</h2><h2 id="Monotone-stack"><a href="#Monotone-stack" class="headerlink" title="Monotone stack"></a>Monotone stack</h2><p>TODO</p>
 <h1 id="Queue-FIFO"><a href="#Queue-FIFO" class="headerlink" title="Queue - FIFO"></a>Queue - FIFO</h1><p>Similiar to Stack, the Queue is also a term and the most common way to implement it are also <strong>Array</strong> and <strong>LinkedList</strong>.</p>
-<h2 id="Two-queue"><a href="#Two-queue" class="headerlink" title="Two queue"></a>Two queue</h2><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><p>lintcode 636<br>lintcode 1201</p>
-<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2>
+<h2 id="Priority-Queue"><a href="#Priority-Queue" class="headerlink" title="Priority Queue"></a>Priority Queue</h2><ul>
+<li><strong>Concept:</strong> This queue will put entry with largest/smallest value in the front, even if it comes later.</li>
+<li><strong>Underlying Techniques:</strong> <a href="/tech/algorithm/Methods-of-Sort#Heap-sort">Binary Heap</a>, <strong>Note:</strong> Binary Search + Ordered Array has $ \frac {N}{2}$ average time complexity.</li>
+<li><p><strong>Operations:</strong></p>
+<ul>
+<li><p><strong>Insert:</strong> Insert in the end of array and run <code>swim(...)</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// assume v is already a binary heap and array start from index = 1.</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swim</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">1</span> &amp;&amp; v[k/<span class="number">2</span>] &lt; v[k]) &#123;</span><br><span class="line">      swap(v[k/<span class="number">2</span>], v[k]);</span><br><span class="line">      k = k / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Delete:</strong> Delete <code>v[1]</code> and <code>swap(v[1], v[n])</code>, then <code>sink(...)</code></p>
+</li>
+<li><strong>Front:</strong> <code>return v[1];</code></li>
+</ul>
+</li>
+<li><strong>Application:</strong> Dijkstra(TODO), Distributed DataStore Consistency, Load Balancing</li>
+</ul>
+
       
     </div>
 
@@ -610,7 +624,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -633,7 +647,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -682,7 +698,19 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -737,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack-LIFO"><span class="nav-number">2.</span> <span class="nav-text">Stack - LIFO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Computer-System"><span class="nav-number">2.1.</span> <span class="nav-text">In Computer System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-stack"><span class="nav-number">2.2.</span> <span class="nav-text">Two stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Monotone-stack"><span class="nav-number">2.3.</span> <span class="nav-text">Monotone stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Queue-FIFO"><span class="nav-number">3.</span> <span class="nav-text">Queue - FIFO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-queue"><span class="nav-number">3.1.</span> <span class="nav-text">Two queue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Practice"><span class="nav-number">4.</span> <span class="nav-text">Practice</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">4.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue"><span class="nav-number">4.2.</span> <span class="nav-text">Queue</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack-LIFO"><span class="nav-number">2.</span> <span class="nav-text">Stack - LIFO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Computer-System"><span class="nav-number">2.1.</span> <span class="nav-text">In Computer System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-stack"><span class="nav-number">2.2.</span> <span class="nav-text">Two stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Monotone-stack"><span class="nav-number">2.3.</span> <span class="nav-text">Monotone stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Queue-FIFO"><span class="nav-number">3.</span> <span class="nav-text">Queue - FIFO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Queue"><span class="nav-number">3.1.</span> <span class="nav-text">Priority Queue</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -778,7 +806,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">32 mins.</span>
   
 </div>
 
@@ -943,6 +971,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

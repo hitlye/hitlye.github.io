@@ -162,8 +162,9 @@
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/merge-sort-visualization.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/merge-sort-time.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/quick-sort-visualization.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/heap-sort-visualization.png">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Methods-of-Sort/sort-conclusion.png">
-<meta property="og:updated_time" content="2018-07-13T00:34:37.025Z">
+<meta property="og:updated_time" content="2018-07-20T04:06:42.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Methods of Sort">
 <meta name="twitter:description" content="ScenarioTry to sort the following cards (Min —&amp;gt; Max)!">
@@ -396,7 +397,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-12 17:34:37" itemprop="dateModified" datetime="2018-07-12T17:34:37-07:00">2018-07-12</time>
+                <time title="Modified: 2018-07-19 21:06:42" itemprop="dateModified" datetime="2018-07-19T21:06:42-07:00">2018-07-19</time>
               
             
           </span>
@@ -454,7 +455,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">7 mins.</span>
               
             </div>
           
@@ -580,7 +581,7 @@
 <h2 id="Analysis-4"><a href="#Analysis-4" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
 <li><strong>Visualization:</strong><br> <img src="quick-sort-visualization.png" width="75%" height="75%" alt="Quick Sort Visualization"> <center><strong>Figure 7. Quick Sort Visualization </strong></center></li>
 <li><strong>Proposition:</strong><ul>
-<li><strong>Time Complexity:</strong> <ul>
+<li><strong>Time Complexity:</strong><ul>
 <li>Best and Average: $\sim N \bullet log(N)$</li>
 <li>Worest: $\sim \frac{1}{2} \bullet N^2$</li>
 <li>Qucik-Selection is almost <strong>linear</strong> time.</li>
@@ -589,7 +590,35 @@
 </ul>
 </li>
 </ul>
-<h1 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>   <img src="sort-conclusion.png" width="75%" height="75%" alt="Sort Conclusion"><br>   <center><strong>Figure 9. Sort Conclusion </strong></center></p>
+<h1 id="Heap-sort"><a href="#Heap-sort" class="headerlink" title="Heap sort"></a>Heap sort</h1><h2 id="Idea-5"><a href="#Idea-5" class="headerlink" title="Idea"></a>Idea</h2><ul>
+<li>Basic Knowledge points:<ul>
+<li><strong>Complete Binary Tree:</strong> Perfectly balanced, except for bottom level.</li>
+<li><strong>Heap-ordered:</strong> Parent’s key no smaller than children’s keys.</li>
+<li><strong>Binary Heap:</strong> Arrat representation of a heap-ordered complete binary tree.</li>
+</ul>
+</li>
+<li>Steps:<ol>
+<li>Construct a binary heap</li>
+<li>At iteration <code>i</code>, get the $ i_{th} $ maximum element, and remove it.</li>
+<li><code>++i</code> and goto step 2.</li>
+</ol>
+</li>
+</ul>
+<h2 id="Code-Sample-5"><a href="#Code-Sample-5" class="headerlink" title="Code Sample"></a>Code Sample</h2><div><div class="fold_hider"><div class="close hider_title">Sample</div></div><div class="fold">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// sink v[i] to appropriate position</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sink</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v, <span class="keyword">size_t</span> i, <span class="keyword">size_t</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">2</span> * i &lt;= n) &#123;</span><br><span class="line">    <span class="comment">// left_child</span></span><br><span class="line">    <span class="keyword">size_t</span> j = <span class="number">2</span> * i;</span><br><span class="line">    <span class="comment">// left_child &lt; right_child</span></span><br><span class="line">    <span class="keyword">if</span> (j &lt; n &amp;&amp; v[j - <span class="number">1</span>] &lt; v[j])</span><br><span class="line">      ++j;</span><br><span class="line">    <span class="keyword">if</span> (v[i - <span class="number">1</span>] &gt;= v[j - <span class="number">1</span>])</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    swap(v[i - <span class="number">1</span>], v[j - <span class="number">1</span>]);</span><br><span class="line">    i = j;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Note: when the array starts from index = 1, then for every node i, its left child</span></span><br><span class="line"><span class="comment"> * is 2*i and its right child is 2*i + 1. But normally, the array starts from</span></span><br><span class="line"><span class="comment"> * index = 0. So, we map index(0 -&gt; n -1) to (1 -&gt; n), then the only change we have</span></span><br><span class="line"><span class="comment"> * to make is making index = index - 1 when accessing array data.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_sort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 1. Construct the binary heap</span></span><br><span class="line">  <span class="keyword">size_t</span> len = v.size();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = len / <span class="number">2</span>; k &gt;= <span class="number">1</span>; --k) &#123;</span><br><span class="line">    sink(v, k, len);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. Repeatedly remove the largest number which is in the v[0].</span></span><br><span class="line">  <span class="keyword">while</span> (len &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    swap(v[<span class="number">0</span>], v[--len]);</span><br><span class="line">    sink(v, <span class="number">1</span>, len);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="Analysis-5"><a href="#Analysis-5" class="headerlink" title="Analysis"></a>Analysis</h2><ul>
+<li><strong>Visualization</strong><br> <img src="heap-sort-visualization.png" width="50%" height="50%" alt="Heap Sort Visualization"> <center><strong>Figure 9. Heap Sort Visualization </strong></center></li>
+<li><strong>Proposition:</strong><ul>
+<li><strong>Time Complexity:</strong> constuction $ \ \le 2N $ + compares $ \ \le 2N \bullet lgN$</li>
+<li><strong>Space Complexity:</strong> $ \sim O(1) $</li>
+<li><strong>Stable:</strong> No</li>
+<li><strong>Application:</strong> <a href="/tech/algorithm/Stack-Queue/#Priority-Queue">Priority Queue</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>   <img src="sort-conclusion.png" width="75%" height="75%" alt="Sort Conclusion"><br>   <center><strong>Figure 10. Sort Conclusion </strong></center></p>
 
       
     </div>
@@ -727,7 +756,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -750,7 +779,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -799,7 +830,19 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -854,7 +897,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sort-Complexity"><span class="nav-number">2.</span> <span class="nav-text">Sort Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">Selection sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">3.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample"><span class="nav-number">3.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">3.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">4.</span> <span class="nav-text">Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-1"><span class="nav-number">4.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-1"><span class="nav-number">4.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-1"><span class="nav-number">4.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-sort"><span class="nav-number">5.</span> <span class="nav-text">Shell sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-2"><span class="nav-number">5.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-2"><span class="nav-number">5.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-2"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-sort"><span class="nav-number">6.</span> <span class="nav-text">Merge sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-3"><span class="nav-number">6.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-3"><span class="nav-number">6.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-3"><span class="nav-number">6.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-sort"><span class="nav-number">7.</span> <span class="nav-text">Quick sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-4"><span class="nav-number">7.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-4"><span class="nav-number">7.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-4"><span class="nav-number">7.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap-sort"><span class="nav-number">8.</span> <span class="nav-text">Heap sort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sort-Complexity"><span class="nav-number">2.</span> <span class="nav-text">Sort Complexity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Selection-sort"><span class="nav-number">3.</span> <span class="nav-text">Selection sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea"><span class="nav-number">3.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample"><span class="nav-number">3.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">3.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Insertion-sort"><span class="nav-number">4.</span> <span class="nav-text">Insertion sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-1"><span class="nav-number">4.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-1"><span class="nav-number">4.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-1"><span class="nav-number">4.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell-sort"><span class="nav-number">5.</span> <span class="nav-text">Shell sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-2"><span class="nav-number">5.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-2"><span class="nav-number">5.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-2"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Merge-sort"><span class="nav-number">6.</span> <span class="nav-text">Merge sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-3"><span class="nav-number">6.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-3"><span class="nav-number">6.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-3"><span class="nav-number">6.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-sort"><span class="nav-number">7.</span> <span class="nav-text">Quick sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-4"><span class="nav-number">7.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-4"><span class="nav-number">7.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-4"><span class="nav-number">7.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap-sort"><span class="nav-number">8.</span> <span class="nav-text">Heap sort</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Idea-5"><span class="nav-number">8.1.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Sample-5"><span class="nav-number">8.2.</span> <span class="nav-text">Code Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-5"><span class="nav-number">8.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
             
 
           </div>
@@ -895,7 +938,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">32 mins.</span>
   
 </div>
 
