@@ -5,12 +5,12 @@ date: 2018-06-13 15:24:45
 tags: [c, c++, note]
 categories:
 - tech
-- c/c++
+- programming language
 ---
 
 # Input & Output
 
-## In C Programming Language
+## C Programming Language
 
 #include "stdio.h"
 - `int putc(int c, FILE* f)`: put **c** to f, buffering
@@ -35,7 +35,7 @@ categories:
 ---
 **Note**: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in [f-func](http://www.cplusplus.com/)
 
-## In C++ Programming Language
+## C++ Programming Language
 
 
 # Data Type
@@ -58,7 +58,7 @@ categories:
         s[j] = '\0';
     }
     ```
-    
+
 2. Check if a given string is an integer(C++).
 
     ```c++

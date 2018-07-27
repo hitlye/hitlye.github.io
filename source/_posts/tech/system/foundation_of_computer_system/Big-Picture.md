@@ -1,8 +1,8 @@
 ---
-title: Foundation of Computer System - Big Picture
+title: Big Picture
 date: 2018-06-19 00:24:35
 mathjax: true
-tags: [computer-system, csapp, 18600]
+tags: [computer-system, csapp, 18-600]
 category:
 - tech
 - system
@@ -66,7 +66,6 @@ The performance of computer is very important, so we have to evaluate it. Here w
     $$ Speedup = \frac{1}{(1 - f) + \frac{f}{N}} $$
     * f: fraction of program that is vectorizable or parallelizable
     * N: Parallelized rate
-    
+
 3. Machine Performance - Moore's Law
 > (Transistors/Die) increases by 2x every 18 months
-

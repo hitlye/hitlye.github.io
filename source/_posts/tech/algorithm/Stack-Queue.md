@@ -1,6 +1,7 @@
 ---
 title: Stack & Queue
 date: 2018-06-28 10:27:58
+mathjax: true
 tags: [stack, queue]
 categories:
 - tech
@@ -42,13 +43,21 @@ TODO
 
 Similiar to Stack, the Queue is also a term and the most common way to implement it are also **Array** and **LinkedList**.
 
-## Two queue
+## Priority Queue
 
-# Practice
-
-## Stack
-
-lintcode 636
-lintcode 1201
-
-## Queue
+* **Concept:** This queue will put entry with largest/smallest value in the front, even if it comes later.
+* **Underlying Techniques:** [Binary Heap](/tech/algorithm/Methods-of-Sort#Heap-sort), **Note:** Binary Search + Ordered Array has $ \frac {N}{2}$ average time complexity.
+* **Operations:**
+  * **Insert:** Insert in the end of array and run `swim(...)`
+  ```c++
+  // assume v is already a binary heap and array start from index = 1.
+  void swim(vector<int>& v, int k) {
+      while (k > 1 && v[k/2] < v[k]) {
+        swap(v[k/2], v[k]);
+        k = k / 2;
+      }
+  }
+  ```
+  * **Delete:** Delete `v[1]` and `swap(v[1], v[n])`, then `sink(...)`
+  * **Front:** `return v[1];`
+* **Application:** Dijkstra(TODO), Distributed DataStore Consistency, Load Balancing
