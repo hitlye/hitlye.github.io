@@ -1,49 +1,16 @@
 ---
 layout: posts
-title: Notes of C and C++
+title: Tricks of C and C++
 date: 2018-06-13 15:24:45
-tags: [c, c++, note]
+tags: [c, c++, tricks]
 categories:
 - tech
 - programming language
 ---
 
-# Input & Output
+## String
 
-## C Programming Language
-
-#include "stdio.h"
-- `int putc(int c, FILE* f)`: put **c** to f, buffering
-- `int fputc(int c, FILE* f)`: ...
-- `int putchar(int c)`: 2nd argument is STDOUT
-- `int fputchar(int c)`: ...
-<!-- more -->
----
-- `int getc(FILE* f)`: get **c** from f, buffering
-- `int fgetc(FILE* f)`: ...
-- `int getchar()`: 2nd argument is STDIN
-- `int fgetchar()`: ...
----
-- `char* fgets(char* str, int num, FILE* f)`: read from **f** until **'\n'** or **num**. **'\n'**(Conditional) and **'\0'**(Required) will be attached to the end of **str**.
-- **(Deprecated)**`char* gets(char* str)`: No *num* and **'\n'**
-- `int fputs(const char* str, FILE* f)`: put **str** to **f** until **'\0'**
-- `int puts(const char* str)`: put **str** to **STDOUT** and will append **'\n'** to the end of str
----
-- `int scanf(const char* format, ...)`: [scanf](http://www.cplusplus.com/reference/cstdio/scanf/)
-- `int printf(const char* format, ...)`: [printf](http://www.cplusplus.com/reference/cstdio/printf/)
-- `sscanf\sprintf`: ...
----
-**Note**: fopen/fwrite/fread/fseek/fclose/fscanf/fprintf in [f-func](http://www.cplusplus.com/)
-
-## C++ Programming Language
-
-
-# Data Type
-
-## String / Char*
-
-1. All strings terminate with `'\0'`.
-
+1. Delete all `c` in `s[]`.
     ``` c
     // Delete all c in s[]
     void squeeze(const char c, char s[]) {
@@ -58,9 +25,9 @@ categories:
         s[j] = '\0';
     }
     ```
+<!-- more -->
 
 2. Check if a given string is an integer(C++).
-
     ```c++
     // Check s is int or not
     bool is_int(String s) {
@@ -69,6 +36,23 @@ categories:
         return ss >> i;
     }
     ```
+
+3. String Join
+   ```c++
+    string s = "abc";
+    stringstream ss;
+    copy(s.begin(), s.end(), ostream_iterator<char>(ss, "#"));
+    // then ss.str() == "a#b#c#"
+    ```
+
+4. String Split
+   ```c++
+   string item;
+   stringstream ss("a,b,,c");
+   vector<string> vals;
+   while (getline(ss, item, ',')) vals.emplace_back(item);
+   // then vals == {a, b, , c}
+   ```
 
 ## Pointer
 
