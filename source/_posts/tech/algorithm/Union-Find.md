@@ -178,7 +178,9 @@ From: [LintCode 434](https://www.lintcode.com/problem/number-of-islands-ii/descr
 Difficulty: Hard
 
 {% fold Hint %}
-* Build Union-find data structure, and initialize it. After receiving an operations `island_num++`. And then try to `union_nodes(current_pos, left_up_right_bottom_pos)`. In `union_nodes()`, if two nodes are in same component, skip. Otherwise, merge them and `island_num--`.
+* Build Union-find data structure, and **initialize it**. 
+* When current block is land then `island_num++`. And try to `union_nodes(current_pos, up_right_pos)`. 
+* In `union_nodes()`, if two nodes are in the same component, skip.(Actually, this won't happen in this solution) Otherwise, merge them and `island_num--`.
 {% endfold %}
 
 ## Bricks Falling when Hit

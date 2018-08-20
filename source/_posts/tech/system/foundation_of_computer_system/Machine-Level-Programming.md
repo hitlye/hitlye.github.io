@@ -15,8 +15,8 @@ category:
 
 Here is the low-level memory distribution of a runtime program:
 <!-- more -->
-   <img src="runtime-stack-overview.png" width="25%" height="25%" alt="Runtime Stack Overview"></img>
-The following machine-level content has four parts: Introduction to **Assembly Language, Data, Procedure, Security**
+   <img src="runtime-program-memory-distribution.png" width="15%" height="15%" alt="Runtime Program Memory Distribution"></img>
+The following machine-level content has four parts: **Introduction to Assembly Language, Data, Procedure, Security**
 
 # Introduction to Assembly Language
 

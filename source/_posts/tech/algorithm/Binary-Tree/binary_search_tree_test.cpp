@@ -10,7 +10,7 @@ namespace tree {
 
 // // test fixture
 class BinarySearchTreeTest : public ::testing::Test {
-protected:
+ protected:
   // Check initialization
   void SetUp() override {
     ASSERT_EQ(0u, string_bst_.size());

@@ -56,7 +56,16 @@ category:
 
 ## Casting
 
-* If there is a mix of integers, signed values cast to unsigned & small values cast to large values.
+* Same types: smaller one --> larger one.
+* Diff types:
+  * If the signedness is same: smaller one --> larger one
+  * If the signedness differs:
+    * unsigned one has same or larger size: others --> unsinged type
+    * otherwise: smaller one -> larger one
+
+## Overflow vs Carry
+
+* Overflow is for **signed value** and carry is for **unsigned value.**
 
 # Integer
 
