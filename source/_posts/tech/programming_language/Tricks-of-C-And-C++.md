@@ -75,6 +75,14 @@ categories:
    Explanation: func is a 3D array and its element is a function pointer which points to a function with int pointer as argument and 5-size int array as return.
 
 
+# Vector & Array
+
+1. Sort an array `sort(begin(counter), end(counter));`
+
+2. Sort in **descending order** ` sort(begin(counter), end(counter), greater<int>());`
+
+
+
 # Misc
 
 1. The evaluation order of operands of an operator is not specified in C. e.g. `x = ++n + g(n)`
