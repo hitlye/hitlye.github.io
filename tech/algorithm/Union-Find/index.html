@@ -155,7 +155,7 @@
 <meta property="og:description" content="ScenarioIn the following picture, it describes a scenario of Union Find. Clarifications:  Number p is connected to number q means there is a path from p to q. Pair(p, q) in the left means p and q shou">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Union-Find/union-find-scenario.png">
-<meta property="og:updated_time" content="2018-06-25T05:33:57.629Z">
+<meta property="og:updated_time" content="2018-08-02T21:57:20.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Union Find">
 <meta name="twitter:description" content="ScenarioIn the following picture, it describes a scenario of Union Find. Clarifications:  Number p is connected to number q means there is a path from p to q. Pair(p, q) in the left means p and q shou">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-24 22:33:57" itemprop="dateModified" datetime="2018-06-24T22:33:57-07:00">2018-06-24</time>
+                <time title="Modified: 2018-08-02 14:57:20" itemprop="dateModified" datetime="2018-08-02T14:57:20-07:00">2018-08-02</time>
               
             
           </span>
@@ -524,7 +524,9 @@
 <h2 id="Number-of-Islands-II"><a href="#Number-of-Islands-II" class="headerlink" title="Number of Islands II"></a>Number of Islands II</h2><p>From: <a href="https://www.lintcode.com/problem/number-of-islands-ii/description" target="_blank" rel="noopener">LintCode 434</a><br>Difficulty: Hard</p>
 <div><div class="fold_hider"><div class="close hider_title">Hint</div></div><div class="fold">
 <ul>
-<li>Build Union-find data structure, and initialize it. After receiving an operations <code>island_num++</code>. And then try to <code>union_nodes(current_pos, left_up_right_bottom_pos)</code>. In <code>union_nodes()</code>, if two nodes are in same component, skip. Otherwise, merge them and <code>island_num--</code>.</li>
+<li>Build Union-find data structure, and <strong>initialize it</strong>. </li>
+<li>When current block is land then <code>island_num++</code>. And try to <code>union_nodes(current_pos, up_right_pos)</code>. </li>
+<li>In <code>union_nodes()</code>, if two nodes are in the same component, skip.(Actually, this won’t happen in this solution) Otherwise, merge them and <code>island_num--</code>.</li>
 </ul>
 
 </div></div>
@@ -576,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/tech/programming_language/Notes-of-C-And-C++/" rel="next" title="Notes of C and C++">
-                <i class="fa fa-chevron-left"></i> Notes of C and C++
+              <a href="/tech/programming_language/Tricks-of-C-And-C++/" rel="next" title="Tricks of C and C++">
+                <i class="fa fa-chevron-left"></i> Tricks of C and C++
               </a>
             
           </div>
@@ -666,7 +668,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -752,7 +754,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -848,7 +854,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">32 mins.</span>
+    <span title="Reading time total">33 mins.</span>
   
 </div>
 

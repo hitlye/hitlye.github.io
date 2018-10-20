@@ -155,7 +155,11 @@
 <meta property="og:description" content="ScenarioNow you have a binary tree, then ….">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/tree_scenario.png">
-<meta property="og:updated_time" content="2018-07-24T07:17:12.775Z">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/2-3-tree-overview.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/red-black-tree-overview.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/red-black-tree-self-balance.png">
+<meta property="og:image" content="http://yoursite.com/tech/algorithm/Binary-Tree/conclusion.png">
+<meta property="og:updated_time" content="2018-07-30T01:51:44.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Binary Tree">
 <meta name="twitter:description" content="ScenarioNow you have a binary tree, then ….">
@@ -388,7 +392,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-24 00:17:12" itemprop="dateModified" datetime="2018-07-24T00:17:12-07:00">2018-07-24</time>
+                <time title="Modified: 2018-07-29 18:51:44" itemprop="dateModified" datetime="2018-07-29T18:51:44-07:00">2018-07-29</time>
               
             
           </span>
@@ -446,7 +450,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">6 mins.</span>
+                <span title="Reading time">8 mins.</span>
               
             </div>
           
@@ -477,7 +481,7 @@
 </ul>
 </blockquote>
 <p><strong>Code representation:</strong><br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * K for key, v for value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">  K key;</span><br><span class="line">  V value;</span><br><span class="line">  <span class="comment">// number of nodes in this subtree</span></span><br><span class="line">  <span class="keyword">size_t</span> count;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&lt;K, V&gt; *<span class="title">lchild</span>;</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&lt;K, V&gt; *<span class="title">rchild</span>;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// constructor</span></span><br><span class="line">  Node(K k, V v) :key(k), value(v), count(<span class="number">1</span>), lchild(<span class="literal">nullptr</span>), rchild(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pre-define some common node</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">using</span> TNode = struct Node&lt;K, V&gt;;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Travesal"><a href="#Travesal" class="headerlink" title="Travesal"></a>Travesal</h1><h1 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h1><p>Refer to <strong><a href="/tech/algorithm/Methods-of-Sort#Heap-sort">Heap Sort</a></strong></p>
+<h1 id="Travesal-TODO"><a href="#Travesal-TODO" class="headerlink" title="Travesal(TODO)"></a>Travesal(TODO)</h1><h1 id="Complete-Binary-Tree"><a href="#Complete-Binary-Tree" class="headerlink" title="Complete Binary Tree"></a>Complete Binary Tree</h1><p>Refer to <strong><a href="/tech/algorithm/Methods-of-Sort#Heap-sort">Heap Sort</a></strong></p>
 <h1 id="Binary-Search-Tree-BST"><a href="#Binary-Search-Tree-BST" class="headerlink" title="Binary Search Tree(BST)"></a>Binary Search Tree(BST)</h1><h2 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
 <p>A BST is a <strong>binary tree</strong> in <strong>symmetric order.</strong><br>  Symmetric Order: Each node has a key, and every node’s key is:</p>
 <ul>
@@ -529,8 +533,48 @@
 </ul>
 <h1 id="Balanced-Search-Tree"><a href="#Balanced-Search-Tree" class="headerlink" title="Balanced Search Tree"></a>Balanced Search Tree</h1><p>Since the above BST is very sensitive to input data, we have to introduce an advanced version to handle every input and still give the awesome performance.</p>
 <h2 id="Definition-2"><a href="#Definition-2" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
-<p>Balanced Search Tree is a kind of Binary Search Tree(BST) with the self-balanced function, which makes the tree is perfect balanced, via, the length differences of every leaf node are not bigger than 1.</p>
+<p>Balanced Search Tree is a kind of Binary Search Tree(BST) with the ability to self-balance , which makes the tree is almost perfect balanced, via, the length differences of every leaf node are not bigger than 1.</p>
 </blockquote>
+<h2 id="2-3-Tree"><a href="#2-3-Tree" class="headerlink" title="2-3 Tree"></a>2-3 Tree</h2><p>   <img src="2-3-tree-overview.png" width="75%" height="75%" alt="2-3 Tree Overview"><br>   <center><strong>Figure 2. 2-3 Tree Overview </strong></center></p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>2-3 Tree is a kind of balanced search tree, it drives from binary search tree by enabling each tree node contains at most 2 keys. More specifically, a 2-3 tree has the following two kinds of nodes:</p>
+<ul>
+<li>2 nodes: the normal nodes in every binary search tree.</li>
+<li>3 nodes: the node cantains 2 keys instead of 1 key.<br>Example: B, D are two keys in such a node. Then this node have three children:<ul>
+<li>Left child with <strong>k &lt; B</strong></li>
+<li>Middle child with <strong>B &lt;= k &lt;= D</strong></li>
+<li>Right child with <strong>k &gt; D</strong></li>
+</ul>
+</li>
+</ul>
+<p>This feature enables 2-3 tree to peform a nearly perfect balance in both <strong>insertion and deletion.</strong></p>
+<h3 id="Insertion"><a href="#Insertion" class="headerlink" title="Insertion"></a>Insertion</h3><p>Steps:</p>
+<ul>
+<li>If the parent node of insertion postion is a 2 nodes, insert key into this node to make it become a 3 nodes</li>
+<li>If the parent node of insertion postion is a 3 nodes, insert key into this node to make it become a 4 nodes, then split it by pop the middle key up.</li>
+</ul>
+<h2 id="Read-Black-Tree"><a href="#Read-Black-Tree" class="headerlink" title="Read-Black Tree"></a>Read-Black Tree</h2><p>   <img src="red-black-tree-overview.png" width="75%" height="75%" alt="Red-Black Tree Overview"><br>   <center><strong>Figure 3. Red-Black Tree Overview </strong></center></p>
+<h3 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h3><p>Here we will introduce the Left-leaning red-black Tree, it is an optimization version of traditonal red-black tree and both of these kinds of red-black tree drives from 2-3 tree. The left-leaning red-black tree <strong>use “internal” left-leaning links as “glue” for 3–nodes.</strong><br><strong>Definition:</strong></p>
+<ul>
+<li>No node has two red links connected to it.</li>
+<li>Every path from root to null link has the same number of black links.</li>
+<li>Red links lean left.</li>
+</ul>
+<p>So the longgest path of a LLRB tree is at most $2logN$, which means the search/insert/delete compare times are also at most $2logN$.</p>
+<h3 id="APIs-TODO"><a href="#APIs-TODO" class="headerlink" title="APIs(TODO)"></a>APIs(TODO)</h3><p><strong>TreeNode</strong><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   Key key;</span><br><span class="line">   Value val;</span><br><span class="line">   Node left, right;</span><br><span class="line">   <span class="keyword">boolean</span> color; <span class="comment">// color of parent link</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Basic Principle:</strong></p>
+<ul>
+<li>Right child red, left child black: rotate left</li>
+<li>Left child black, left-left grand child black: rorate right</li>
+<li>Both child red: flip colors</li>
+<li><p><strong>Repeat above 1 - 3 operations until it becomes qualified</strong></p>
+<p> <img src="red-black-tree-self-balance.png" width="75%" height="75%" alt="Red-Black Tree Self-Balancing"></p>
+ <center><strong>Figure 4. Red-Black Tree Self-Balancing </strong></center>
+</li>
+<li><p>Put()…</p>
+</li>
+<li>Delete()…</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>   <img src="conclusion.png" width="100%" height="100%" alt="Conclusion"><br>   <center><strong>Figure 5. Conclusion </strong></center></p>
 
       
     </div>
@@ -662,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -748,7 +792,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -803,7 +851,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Definition"><span class="nav-number">2.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travesal"><span class="nav-number">3.</span> <span class="nav-text">Travesal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Complete-Binary-Tree"><span class="nav-number">4.</span> <span class="nav-text">Complete Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Search-Tree-BST"><span class="nav-number">5.</span> <span class="nav-text">Binary Search Tree(BST)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-1"><span class="nav-number">5.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIs"><span class="nav-number">5.2.</span> <span class="nav-text">APIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Balanced-Search-Tree"><span class="nav-number">6.</span> <span class="nav-text">Balanced Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-2"><span class="nav-number">6.1.</span> <span class="nav-text">Definition</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scenario"><span class="nav-number">1.</span> <span class="nav-text">Scenario</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Definition"><span class="nav-number">2.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Travesal-TODO"><span class="nav-number">3.</span> <span class="nav-text">Travesal(TODO)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Complete-Binary-Tree"><span class="nav-number">4.</span> <span class="nav-text">Complete Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Search-Tree-BST"><span class="nav-number">5.</span> <span class="nav-text">Binary Search Tree(BST)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-1"><span class="nav-number">5.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APIs"><span class="nav-number">5.2.</span> <span class="nav-text">APIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis"><span class="nav-number">5.3.</span> <span class="nav-text">Analysis</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Balanced-Search-Tree"><span class="nav-number">6.</span> <span class="nav-text">Balanced Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-2"><span class="nav-number">6.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Tree"><span class="nav-number">6.2.</span> <span class="nav-text">2-3 Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">6.2.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion"><span class="nav-number">6.2.2.</span> <span class="nav-text">Insertion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read-Black-Tree"><span class="nav-number">6.3.</span> <span class="nav-text">Read-Black Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-1"><span class="nav-number">6.3.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APIs-TODO"><span class="nav-number">6.3.2.</span> <span class="nav-text">APIs(TODO)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.4.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -844,7 +892,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">32 mins.</span>
+    <span title="Reading time total">33 mins.</span>
   
 </div>
 

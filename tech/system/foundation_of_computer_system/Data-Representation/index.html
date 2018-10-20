@@ -164,7 +164,7 @@
 <meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-category.png">
 <meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/float-example.png">
 <meta property="og:image" content="http://yoursite.com/tech/system/foundation_of_computer_system/Data-Representation/round-example.png">
-<meta property="og:updated_time" content="2018-07-25T06:04:19.637Z">
+<meta property="og:updated_time" content="2018-08-06T08:28:37.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Representation">
 <meta name="twitter:description" content="Basic Principle In computer evey information is represented with binary form, which means they are interleaving 1 &amp;amp; 0 sequences.  ClarificationWhy binary form and 1 &amp;amp; 0? Compared to analog cir">
@@ -397,7 +397,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-24 23:04:19" itemprop="dateModified" datetime="2018-07-24T23:04:19-07:00">2018-07-24</time>
+                <time title="Modified: 2018-08-06 01:28:37" itemprop="dateModified" datetime="2018-08-06T01:28:37-07:00">2018-08-06</time>
               
             
           </span>
@@ -517,7 +517,19 @@
 </li>
 </ul>
 <h2 id="Casting"><a href="#Casting" class="headerlink" title="Casting"></a>Casting</h2><ul>
-<li>If there is a mix of integers, signed values cast to unsigned &amp; small values cast to large values.</li>
+<li>Same types: smaller one –&gt; larger one.</li>
+<li>Diff types:<ul>
+<li>If the signedness is same: smaller one –&gt; larger one</li>
+<li>If the signedness differs:<ul>
+<li>unsigned one has same or larger size: others –&gt; unsinged type</li>
+<li>otherwise: smaller one -&gt; larger one</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Overflow-vs-Carry"><a href="#Overflow-vs-Carry" class="headerlink" title="Overflow vs Carry"></a>Overflow vs Carry</h2><ul>
+<li>Overflow is for <strong>signed value</strong> and carry is for <strong>unsigned value.</strong></li>
 </ul>
 <h1 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h1><p>Generally speaking, there are two kinds of integer - <strong>signed</strong> and <strong>unsigned</strong>. However, the underlying representation of integer will not get changed when you cast them beteween signed or unsigned.<br><strong>!!!All examples are in 4 bits.</strong><br><strong>!!!All operations are bitwise manipulations.</strong></p>
 <h2 id="Core-principle"><a href="#Core-principle" class="headerlink" title="Core principle"></a>Core principle</h2><p>Coversion from signed integers to unsigned ones or in the other way round keeps bit representations and just do reinterpret.</p>
@@ -729,7 +741,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -815,7 +827,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -870,7 +886,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Principle"><span class="nav-number">1.</span> <span class="nav-text">Basic Principle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-binary-form-and-1-amp-0"><span class="nav-number">2.1.</span> <span class="nav-text">Why binary form and 1 &amp; 0?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Hexadecimal"><span class="nav-number">2.2.</span> <span class="nav-text">Why Hexadecimal?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Size"><span class="nav-number">2.3.</span> <span class="nav-text">Word Size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Manipulations"><span class="nav-number">2.4.</span> <span class="nav-text">Bit Manipulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typical-C-Data-Type"><span class="nav-number">2.5.</span> <span class="nav-text">Typical C Data Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Byte-Ordering"><span class="nav-number">2.6.</span> <span class="nav-text">Byte Ordering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting"><span class="nav-number">2.7.</span> <span class="nav-text">Casting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-principle"><span class="nav-number">3.1.</span> <span class="nav-text">Core principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-Taken"><span class="nav-number">3.2.</span> <span class="nav-text">Intuitive Idea(Not Taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2s-complement"><span class="nav-number">3.3.</span> <span class="nav-text">2s complement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-number">3.4.</span> <span class="nav-text">Visualization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General-Formula"><span class="nav-number">3.5.</span> <span class="nav-text">General Formula</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation"><span class="nav-number">3.6.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">3.7.</span> <span class="nav-text">Practice</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">4.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Float"><span class="nav-number">5.</span> <span class="nav-text">Float</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-taken"><span class="nav-number">5.1.</span> <span class="nav-text">Intuitive Idea(Not taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-Floating-Point"><span class="nav-number">5.2.</span> <span class="nav-text">IEEE Floating Point</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calulation"><span class="nav-number">5.3.</span> <span class="nav-text">Calulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rounding"><span class="nav-number">5.4.</span> <span class="nav-text">Rounding</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Principle"><span class="nav-number">1.</span> <span class="nav-text">Basic Principle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-binary-form-and-1-amp-0"><span class="nav-number">2.1.</span> <span class="nav-text">Why binary form and 1 &amp; 0?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Hexadecimal"><span class="nav-number">2.2.</span> <span class="nav-text">Why Hexadecimal?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Size"><span class="nav-number">2.3.</span> <span class="nav-text">Word Size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Manipulations"><span class="nav-number">2.4.</span> <span class="nav-text">Bit Manipulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typical-C-Data-Type"><span class="nav-number">2.5.</span> <span class="nav-text">Typical C Data Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Byte-Ordering"><span class="nav-number">2.6.</span> <span class="nav-text">Byte Ordering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting"><span class="nav-number">2.7.</span> <span class="nav-text">Casting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Overflow-vs-Carry"><span class="nav-number">2.8.</span> <span class="nav-text">Overflow vs Carry</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Integer"><span class="nav-number">3.</span> <span class="nav-text">Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-principle"><span class="nav-number">3.1.</span> <span class="nav-text">Core principle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-Taken"><span class="nav-number">3.2.</span> <span class="nav-text">Intuitive Idea(Not Taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2s-complement"><span class="nav-number">3.3.</span> <span class="nav-text">2s complement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visualization"><span class="nav-number">3.4.</span> <span class="nav-text">Visualization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#General-Formula"><span class="nav-number">3.5.</span> <span class="nav-text">General Formula</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation"><span class="nav-number">3.6.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practice"><span class="nav-number">3.7.</span> <span class="nav-text">Practice</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">4.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Float"><span class="nav-number">5.</span> <span class="nav-text">Float</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuitive-Idea-Not-taken"><span class="nav-number">5.1.</span> <span class="nav-text">Intuitive Idea(Not taken)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-Floating-Point"><span class="nav-number">5.2.</span> <span class="nav-text">IEEE Floating Point</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calulation"><span class="nav-number">5.3.</span> <span class="nav-text">Calulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rounding"><span class="nav-number">5.4.</span> <span class="nav-text">Rounding</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -911,7 +927,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">32 mins.</span>
+    <span title="Reading time total">33 mins.</span>
   
 </div>
 
