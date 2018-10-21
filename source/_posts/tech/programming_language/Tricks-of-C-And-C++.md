@@ -31,7 +31,7 @@ categories:
     ```c++
     // Check s is int or not
     bool is_int(String s) {
-        stringstream ss;
+        stringstream ss(s);
         int i;
         return ss >> i;
     }
